@@ -92,19 +92,46 @@ document.addEventListener('DOMContentLoaded', () => {
   getStoredApplications();
   getStoredReklamo();
 
-  // --- Mobile Menu Toggle ---
+  // --- Mobile Sidebar Drawer Toggle ---
+  const mobileSidebarToggle = document.getElementById('mobile-sidebar-toggle');
+  const mobileSidebarClose = document.getElementById('mobile-sidebar-close');
+  const mobileSidebarDrawer = document.getElementById('mobile-sidebar-drawer');
+  const mobileSidebarBackdrop = document.getElementById('mobile-sidebar-backdrop');
+
+  function openMobileSidebar() {
+    if (mobileSidebarDrawer && mobileSidebarBackdrop) {
+      mobileSidebarBackdrop.classList.remove('hidden');
+      mobileSidebarDrawer.classList.remove('-translate-x-full');
+    }
+  }
+
+  function closeMobileSidebar() {
+    if (mobileSidebarDrawer && mobileSidebarBackdrop) {
+      mobileSidebarBackdrop.classList.add('hidden');
+      mobileSidebarDrawer.classList.add('-translate-x-full');
+    }
+  }
+
+  if (mobileSidebarToggle) {
+    mobileSidebarToggle.addEventListener('click', openMobileSidebar);
+  }
+  if (mobileSidebarClose) {
+    mobileSidebarClose.addEventListener('click', closeMobileSidebar);
+  }
+  if (mobileSidebarBackdrop) {
+    mobileSidebarBackdrop.addEventListener('click', closeMobileSidebar);
+  }
+
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', closeMobileSidebar);
+  });
+
+  // Legacy fallback if mobile-menu-btn exists
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileNav = document.getElementById('mobile-nav');
-
   if (mobileMenuBtn && mobileNav) {
     mobileMenuBtn.addEventListener('click', () => {
       mobileNav.classList.toggle('hidden');
-    });
-
-    mobileNav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileNav.classList.add('hidden');
-      });
     });
   }
 
