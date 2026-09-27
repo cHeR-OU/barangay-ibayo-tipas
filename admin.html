@@ -1,24 +1,53 @@
 <!DOCTYPE html>
-<html lang="tl" class="h-full bg-slate-100">
+<html lang="tl" class="h-full bg-[#f7faf8]">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Portal | Barangay Ibayo-Tipas E-Services</title>
+  <title>Admin Portal — Barangay Ibayo-Tipas</title>
   
-  <!-- Tailwind CSS CDN -->
+  <!-- Google Fonts: Bricolage Grotesque & Public Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN with Lovable Theme Configuration -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            brand: {
-              navy: '#1e3a8a',
-              blue: '#2563eb',
-              red: '#dc2626',
-              gold: '#f59e0b',
-              dark: '#0f172a'
-            }
+            leaf: {
+              DEFAULT: '#143d2c',
+              dark: '#0e2b1f',
+              light: '#1e5941'
+            },
+            primary: {
+              DEFAULT: '#1f6a4e',
+              foreground: '#f8faf8',
+              hover: '#17543d'
+            },
+            sun: {
+              DEFAULT: '#f59e0b',
+              foreground: '#3b1d03',
+              hover: '#d97706'
+            },
+            background: '#f7faf8',
+            foreground: '#1c2822',
+            card: '#ffffff',
+            secondary: {
+              DEFAULT: '#e8f1eb',
+              foreground: '#1c4b37'
+            },
+            muted: {
+              DEFAULT: '#edf3ef',
+              foreground: '#526b5e'
+            },
+            border: '#dce3de'
+          },
+          fontFamily: {
+            heading: ['"Bricolage Grotesque"', 'sans-serif'],
+            sans: ['"Public Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif']
           }
         }
       }
@@ -29,7 +58,12 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    /* Print Certificate Styles */
+    body {
+      font-family: 'Public Sans', sans-serif;
+    }
+    h1, h2, h3, h4, h5, h6, .font-heading {
+      font-family: 'Bricolage Grotesque', sans-serif;
+    }
     @media print {
       body * {
         visibility: hidden !important;
@@ -54,54 +88,54 @@
     }
   </style>
 </head>
-<body class="h-full flex flex-col font-sans antialiased text-slate-800">
+<body class="h-full flex flex-col antialiased text-foreground">
 
   <!-- ================= AUTH GATE (LOGIN SCREEN) ================= -->
-  <div id="admin-login-screen" class="fixed inset-0 z-50 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 flex items-center justify-center p-4">
-    <div class="bg-white w-full max-w-md rounded-2xl shadow-2xl border border-slate-700/50 p-8 space-y-6">
+  <div id="admin-login-screen" class="fixed inset-0 z-50 bg-leaf-dark/95 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-card w-full max-w-md rounded-2xl shadow-2xl border border-border p-8 space-y-6">
       
       <div class="text-center space-y-2">
-        <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-blue-900 to-red-600 flex items-center justify-center text-white text-2xl font-black mx-auto shadow-lg border-2 border-amber-400">
-          BIT
-        </div>
-        <h2 class="text-2xl font-black text-slate-900 tracking-tight">Barangay Admin Portal</h2>
-        <p class="text-xs text-slate-500">
-          Barangay Ibayo-Tipas, City of Taguig<br>
-          <span class="text-blue-900 font-semibold">Tanggapan ng Pagproseso at Pag-apruba</span>
+        <span class="flex size-14 items-center justify-center rounded-full bg-primary text-primary-foreground mx-auto shadow-md">
+          <i data-lucide="leaf" class="size-7"></i>
+        </span>
+        <h2 class="text-2xl font-black text-foreground tracking-tight font-heading">Barangay Admin Portal</h2>
+        <p class="text-xs text-muted-foreground">
+          Barangay Ibayo-Tipas, Taguig City<br>
+          <span class="text-primary font-semibold">Tanggapan ng Pagproseso at Pag-apruba</span>
         </p>
       </div>
 
       <form id="admin-login-form" class="space-y-4">
         <div>
-          <label class="block text-xs font-bold text-slate-700 mb-1">Pangalan o Staff Role</label>
-          <input type="text" id="admin-staff-name" required placeholder="Hal. Kalihim / Records Officer" value="Records Desk Officer" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs font-semibold focus:ring-2 focus:ring-blue-600 focus:outline-none">
+          <label class="block text-xs font-bold text-foreground mb-1">Pangalan o Staff Role</label>
+          <input type="text" id="admin-staff-name" required placeholder="Hal. Kalihim / Records Officer" value="Records Desk Officer" class="w-full bg-background border border-border rounded-xl px-3.5 py-2.5 text-xs font-semibold focus:bg-white focus:ring-2 focus:ring-primary focus:outline-none">
         </div>
 
         <div>
           <div class="flex items-center justify-between mb-1">
-            <label class="block text-xs font-bold text-slate-700">Staff Passcode</label>
-            <span class="text-[10px] text-slate-400">Default: <code class="font-bold text-blue-700">tipas2026</code></span>
+            <label class="block text-xs font-bold text-foreground">Staff Passcode</label>
+            <span class="text-[10px] text-muted-foreground">Default: <code class="font-bold text-primary">tipas2026</code></span>
           </div>
-          <input type="password" id="admin-staff-password" required placeholder="••••••••" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs font-mono tracking-widest focus:ring-2 focus:ring-blue-600 focus:outline-none">
+          <input type="password" id="admin-staff-password" required placeholder="••••••••" class="w-full bg-background border border-border rounded-xl px-3.5 py-2.5 text-xs font-mono tracking-widest focus:bg-white focus:ring-2 focus:ring-primary focus:outline-none">
         </div>
 
-        <div id="login-error-msg" class="hidden p-3 rounded-lg bg-red-50 border border-red-200 text-xs text-red-600 font-semibold flex items-center gap-2">
+        <div id="login-error-msg" class="hidden p-3 rounded-xl bg-red-50 border border-red-200 text-xs text-red-600 font-semibold flex items-center gap-2">
           <i data-lucide="alert-circle" class="w-4 h-4 shrink-0"></i>
           <span>Maling passcode! Pakisubukang muli (Default: tipas2026).</span>
         </div>
 
-        <button type="submit" class="w-full bg-blue-900 hover:bg-blue-800 text-white font-bold py-3 rounded-xl text-xs shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2">
-          <i data-lucide="log-in" class="w-4 h-4 text-amber-400"></i>
+        <button type="submit" class="w-full rounded-full bg-sun hover:bg-sun-hover text-sun-foreground font-bold py-3 text-xs shadow-md transition-transform hover:scale-105 flex items-center justify-center gap-2">
+          <i data-lucide="log-in" class="w-4 h-4"></i>
           <span>Mag-login sa Dashboard</span>
         </button>
       </form>
 
-      <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-        <a href="index.html" class="hover:text-blue-700 font-semibold flex items-center gap-1 transition-colors">
+      <div class="pt-4 border-t border-border flex items-center justify-between text-xs text-muted-foreground">
+        <a href="index.html" class="hover:text-primary font-semibold flex items-center gap-1 transition-colors">
           <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
-          <span>Bumalik sa Public Portal</span>
+          <span>Bumalik sa Website</span>
         </a>
-        <span class="text-[11px] text-slate-400">Team Willy Flores</span>
+        <span class="text-[11px]">Tuloy ang Serbisyo!</span>
       </div>
 
     </div>
@@ -111,63 +145,58 @@
   <div id="admin-main-app" class="flex-1 flex flex-col overflow-hidden">
     
     <!-- Top Admin Bar -->
-    <header class="bg-white border-b border-slate-200 h-16 flex items-center justify-between px-4 sm:px-6 z-20 shadow-sm">
+    <header class="bg-card border-b border-border h-16 flex items-center justify-between px-4 sm:px-6 z-20 shadow-sm">
       <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-900 to-red-600 flex items-center justify-center text-white text-base font-black border-2 border-amber-400 shadow-sm">
-          BIT
-        </div>
+        <span class="flex size-9 items-center justify-center rounded-full bg-primary text-primary-foreground">
+          <i data-lucide="leaf" class="size-4"></i>
+        </span>
         <div>
           <div class="flex items-center gap-2">
-            <h1 class="text-sm font-black text-slate-900 tracking-tight">BARANGAY IBAYO-TIPAS</h1>
-            <span class="bg-blue-100 text-blue-900 text-[10px] font-bold px-2 py-0.5 rounded-full">ADMIN PORTAL</span>
+            <h1 class="text-sm font-black text-foreground font-heading tracking-tight">BARANGAY IBAYO-TIPAS</h1>
+            <span class="bg-secondary text-primary font-bold text-[10px] px-2.5 py-0.5 rounded-full">ADMIN PORTAL</span>
           </div>
-          <div class="text-[11px] text-slate-500 font-medium">Taguig City • Approval & Processing Desk</div>
+          <div class="text-[11px] text-muted-foreground font-medium">Taguig City · Approvals & Processing Desk</div>
         </div>
       </div>
 
       <div class="flex items-center gap-3">
-        <a href="index.html" target="_blank" class="hidden sm:flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-blue-900 bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg transition-colors">
+        <a href="index.html" target="_blank" class="hidden sm:flex items-center gap-1.5 text-xs font-bold text-muted-foreground hover:text-foreground bg-secondary px-3.5 py-1.5 rounded-full transition-colors">
           <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-          <span>Buksan ang Public Site</span>
+          <span>Public Portal</span>
         </a>
 
-        <!-- Logged in staff profile -->
-        <div class="flex items-center gap-2 bg-blue-50 border border-blue-200 px-3 py-1 rounded-xl">
-          <div class="w-7 h-7 rounded-full bg-blue-900 text-white flex items-center justify-center text-xs font-bold">
-            <i data-lucide="user-check" class="w-3.5 h-3.5"></i>
-          </div>
-          <div class="text-left hidden md:block">
-            <div id="active-staff-label" class="text-xs font-bold text-blue-950 leading-tight">Records Officer</div>
-            <div class="text-[10px] text-emerald-600 font-bold">● Naka-login</div>
-          </div>
+        <!-- Staff status badge -->
+        <div class="flex items-center gap-2 bg-secondary px-3 py-1 rounded-full border border-border">
+          <span class="w-2 h-2 rounded-full bg-primary"></span>
+          <div class="text-xs font-bold text-foreground leading-tight" id="active-staff-label">Records Officer</div>
         </div>
 
-        <button id="admin-logout-btn" title="Mag-logout" class="p-2 text-slate-500 hover:text-red-600 hover:bg-red-50 rounded-xl transition-colors">
+        <button id="admin-logout-btn" title="Mag-logout" class="p-2 text-muted-foreground hover:text-red-600 rounded-full hover:bg-secondary transition-colors">
           <i data-lucide="log-out" class="w-5 h-5"></i>
         </button>
       </div>
     </header>
 
-    <!-- Main Container with Navigation Tabs -->
+    <!-- Main Container -->
     <div class="flex-1 flex flex-col md:flex-row overflow-hidden">
       
       <!-- Sidebar Navigation -->
-      <aside class="w-full md:w-64 bg-slate-900 text-slate-300 flex-shrink-0 flex flex-col justify-between border-r border-slate-800">
-        <div class="p-4 space-y-1">
+      <aside class="w-full md:w-64 bg-leaf-dark text-emerald-100/90 flex-shrink-0 flex flex-col justify-between border-r border-leaf">
+        <div class="p-4 space-y-1.5">
           
-          <div class="px-3 py-2 text-[10px] font-extrabold uppercase tracking-wider text-slate-500">
+          <div class="px-3 py-2 text-[10px] font-extrabold uppercase tracking-wider text-emerald-400">
             Pangunahing Menu
           </div>
 
-          <button class="nav-tab-btn active w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold bg-blue-600 text-white transition-all" data-tab="approvals">
+          <button class="nav-tab-btn active w-full flex items-center justify-between px-4 py-2.5 rounded-full text-xs font-bold bg-primary text-primary-foreground transition-all" data-tab="approvals">
             <div class="flex items-center gap-2.5">
               <i data-lucide="file-check-2" class="w-4 h-4"></i>
               <span>Mga Aplikasyon</span>
             </div>
-            <span id="badge-total-pending" class="bg-amber-400 text-slate-950 font-black text-[10px] px-2 py-0.5 rounded-full">0</span>
+            <span id="badge-total-pending" class="bg-sun text-sun-foreground font-black text-[10px] px-2 py-0.5 rounded-full">0</span>
           </button>
 
-          <button class="nav-tab-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold text-slate-300 hover:bg-slate-800 hover:text-white transition-all" data-tab="reklamo">
+          <button class="nav-tab-btn w-full flex items-center justify-between px-4 py-2.5 rounded-full text-xs font-bold text-emerald-100/80 hover:bg-leaf hover:text-white transition-all" data-tab="reklamo">
             <div class="flex items-center gap-2.5">
               <i data-lucide="shield-alert" class="w-4 h-4"></i>
               <span>e-Reklamo Desk</span>
@@ -175,34 +204,33 @@
             <span id="badge-total-reklamo" class="bg-rose-500 text-white font-black text-[10px] px-2 py-0.5 rounded-full">0</span>
           </button>
 
-          <button class="nav-tab-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold text-slate-300 hover:bg-slate-800 hover:text-white transition-all" data-tab="generator">
+          <button class="nav-tab-btn w-full flex items-center justify-between px-4 py-2.5 rounded-full text-xs font-bold text-emerald-100/80 hover:bg-leaf hover:text-white transition-all" data-tab="generator">
             <div class="flex items-center gap-2.5">
               <i data-lucide="printer" class="w-4 h-4"></i>
               <span>Print Station</span>
             </div>
-            <span class="text-[10px] text-slate-500 font-semibold">Ready</span>
+            <span class="text-[10px] text-emerald-300">Ready</span>
           </button>
 
-          <button class="nav-tab-btn w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold text-slate-300 hover:bg-slate-800 hover:text-white transition-all" data-tab="settings">
+          <button class="nav-tab-btn w-full flex items-center justify-between px-4 py-2.5 rounded-full text-xs font-bold text-emerald-100/80 hover:bg-leaf hover:text-white transition-all" data-tab="settings">
             <div class="flex items-center gap-2.5">
               <i data-lucide="database" class="w-4 h-4"></i>
               <span>Google Sheets Sync</span>
             </div>
-            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span class="w-2 h-2 rounded-full bg-sun"></span>
           </button>
 
         </div>
 
-        <!-- Footer info in sidebar -->
-        <div class="p-4 border-t border-slate-800/80 text-[11px] text-slate-500 space-y-1">
-          <div class="font-bold text-slate-400">Barangay Ibayo-Tipas</div>
+        <div class="p-4 border-t border-leaf text-[11px] text-emerald-200/60 space-y-1">
+          <div class="font-bold text-emerald-100">Barangay Ibayo-Tipas</div>
           <div>Punong Barangay: Hon. Willy Flores</div>
-          <div class="text-[10px] text-slate-600 pt-1">Versyon 2.1 • 2026 Release</div>
+          <div class="text-[10px] text-emerald-300/50">Tuloy ang Serbisyo!</div>
         </div>
       </aside>
 
-      <!-- Main Content Area -->
-      <main class="flex-1 bg-slate-100 overflow-y-auto p-4 sm:p-6 lg:p-8">
+      <!-- Main Content -->
+      <main class="flex-1 bg-background overflow-y-auto p-4 sm:p-6 lg:p-8">
         
         <!-- ================= TAB 1: APPROVALS & PROCESSING ================= -->
         <div id="tab-content-approvals" class="tab-pane space-y-6">
@@ -210,117 +238,115 @@
           <!-- KPI Metrics Cards -->
           <div class="grid grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4">
             
-            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
-              <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Lahat ng Requests</span>
-              <div id="kpi-total-apps" class="text-2xl sm:text-3xl font-black text-slate-900 mt-2">0</div>
-              <span class="text-[10px] text-slate-400 mt-1">Kabuuang talaan</span>
+            <div class="bg-card p-4 rounded-2xl border border-border shadow-sm flex flex-col justify-between">
+              <span class="text-xs font-bold text-muted-foreground uppercase tracking-wide">Lahat ng Requests</span>
+              <div id="kpi-total-apps" class="text-2xl sm:text-3xl font-black text-foreground font-heading mt-2">0</div>
+              <span class="text-[10px] text-muted-foreground mt-1">Kabuuang talaan</span>
             </div>
 
-            <div class="bg-white p-4 rounded-2xl border border-amber-200 shadow-sm flex flex-col justify-between">
+            <div class="bg-card p-4 rounded-2xl border border-sun/40 shadow-sm flex flex-col justify-between">
               <div class="flex items-center justify-between">
-                <span class="text-xs font-bold text-amber-700 uppercase tracking-wide">Under Review</span>
-                <span class="w-2 h-2 rounded-full bg-amber-500 animate-ping"></span>
+                <span class="text-xs font-bold text-sun-hover uppercase tracking-wide">Under Review</span>
+                <span class="size-2 rounded-full bg-sun animate-ping"></span>
               </div>
-              <div id="kpi-review-apps" class="text-2xl sm:text-3xl font-black text-amber-600 mt-2">0</div>
-              <span class="text-[10px] text-amber-600/80 mt-1">Kailangang suriin</span>
+              <div id="kpi-review-apps" class="text-2xl sm:text-3xl font-black text-sun-hover font-heading mt-2">0</div>
+              <span class="text-[10px] text-muted-foreground mt-1">Kailangang suriin</span>
             </div>
 
-            <div class="bg-white p-4 rounded-2xl border border-blue-200 shadow-sm flex flex-col justify-between">
-              <span class="text-xs font-bold text-blue-700 uppercase tracking-wide">For Signature</span>
-              <div id="kpi-signature-apps" class="text-2xl sm:text-3xl font-black text-blue-600 mt-2">0</div>
-              <span class="text-[10px] text-blue-600/80 mt-1">Kay PB Willy Flores</span>
+            <div class="bg-card p-4 rounded-2xl border border-border shadow-sm flex flex-col justify-between">
+              <span class="text-xs font-bold text-primary uppercase tracking-wide">For Signature</span>
+              <div id="kpi-signature-apps" class="text-2xl sm:text-3xl font-black text-primary font-heading mt-2">0</div>
+              <span class="text-[10px] text-muted-foreground mt-1">Kay PB Willy Flores</span>
             </div>
 
-            <div class="bg-white p-4 rounded-2xl border border-emerald-200 shadow-sm flex flex-col justify-between">
+            <div class="bg-card p-4 rounded-2xl border border-emerald-300 shadow-sm flex flex-col justify-between">
               <span class="text-xs font-bold text-emerald-700 uppercase tracking-wide">Ready for Pickup</span>
-              <div id="kpi-ready-apps" class="text-2xl sm:text-3xl font-black text-emerald-600 mt-2">0</div>
-              <span class="text-[10px] text-emerald-600/80 mt-1">Nasa Releasing Desk</span>
+              <div id="kpi-ready-apps" class="text-2xl sm:text-3xl font-black text-emerald-600 font-heading mt-2">0</div>
+              <span class="text-[10px] text-muted-foreground mt-1">Sa Releasing Window</span>
             </div>
 
-            <div class="bg-white p-4 rounded-2xl border border-purple-200 shadow-sm flex flex-col justify-between">
-              <span class="text-xs font-bold text-purple-700 uppercase tracking-wide">Released / Done</span>
-              <div id="kpi-released-apps" class="text-2xl sm:text-3xl font-black text-purple-600 mt-2">0</div>
-              <span class="text-[10px] text-purple-600/80 mt-1">Nakuha na ng residente</span>
+            <div class="bg-card p-4 rounded-2xl border border-border shadow-sm flex flex-col justify-between">
+              <span class="text-xs font-bold text-muted-foreground uppercase tracking-wide">Released / Done</span>
+              <div id="kpi-released-apps" class="text-2xl sm:text-3xl font-black text-foreground font-heading mt-2">0</div>
+              <span class="text-[10px] text-muted-foreground mt-1">Nakuha na ng residente</span>
             </div>
 
           </div>
 
-          <!-- Controls, Search & Filter Bar -->
-          <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3">
-            
+          <!-- Controls Bar -->
+          <div class="bg-card p-4 sm:p-5 rounded-2xl border border-border shadow-sm space-y-3">
             <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
               
               <!-- Search box -->
               <div class="relative flex-1">
-                <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-3 text-slate-400"></i>
+                <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-3 text-muted-foreground"></i>
                 <input 
                   type="text" 
                   id="admin-search-input" 
                   placeholder="Maghanap gamit ang Tracking Code (BIT-...), Pangalan, o Mobile..." 
-                  class="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs font-semibold focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none"
+                  class="w-full pl-10 pr-4 py-2 bg-background border border-border rounded-xl text-xs font-semibold focus:bg-white focus:ring-2 focus:ring-primary focus:outline-none"
                 >
               </div>
 
               <!-- Status filter pills -->
               <div class="flex flex-wrap items-center gap-1.5 text-xs">
-                <button class="status-filter-btn active bg-blue-900 text-white font-bold px-3 py-1.5 rounded-lg transition-colors" data-status="all">
+                <button class="status-filter-btn active bg-primary text-primary-foreground font-bold px-3 py-1.5 rounded-full transition-colors" data-status="all">
                   Lahat
                 </button>
-                <button class="status-filter-btn bg-slate-100 text-slate-700 font-semibold px-3 py-1.5 rounded-lg hover:bg-slate-200 transition-colors" data-status="Under Review">
+                <button class="status-filter-btn bg-secondary text-secondary-foreground font-semibold px-3 py-1.5 rounded-full hover:bg-border transition-colors" data-status="Under Review">
                   Under Review
                 </button>
-                <button class="status-filter-btn bg-slate-100 text-slate-700 font-semibold px-3 py-1.5 rounded-lg hover:bg-slate-200 transition-colors" data-status="For Signature">
+                <button class="status-filter-btn bg-secondary text-secondary-foreground font-semibold px-3 py-1.5 rounded-full hover:bg-border transition-colors" data-status="For Signature">
                   For Signature
                 </button>
-                <button class="status-filter-btn bg-slate-100 text-slate-700 font-semibold px-3 py-1.5 rounded-lg hover:bg-slate-200 transition-colors" data-status="Ready for Pickup">
+                <button class="status-filter-btn bg-secondary text-secondary-foreground font-semibold px-3 py-1.5 rounded-full hover:bg-border transition-colors" data-status="Ready for Pickup">
                   Ready for Pickup
                 </button>
-                <button class="status-filter-btn bg-slate-100 text-slate-700 font-semibold px-3 py-1.5 rounded-lg hover:bg-slate-200 transition-colors" data-status="Released">
+                <button class="status-filter-btn bg-secondary text-secondary-foreground font-semibold px-3 py-1.5 rounded-full hover:bg-border transition-colors" data-status="Released">
                   Released
                 </button>
               </div>
 
-              <!-- Export & Action buttons -->
+              <!-- Export button -->
               <div class="flex items-center gap-2">
-                <button id="btn-export-csv" class="bg-emerald-700 hover:bg-emerald-600 text-white font-bold px-3 py-2 rounded-xl text-xs shadow-sm transition-all flex items-center gap-1.5">
+                <button id="btn-export-csv" class="rounded-full bg-primary hover:bg-primary-hover text-primary-foreground font-bold px-4 py-2 text-xs shadow-sm transition-all flex items-center gap-1.5">
                   <i data-lucide="download" class="w-3.5 h-3.5"></i>
                   <span>Export CSV</span>
                 </button>
-                <button id="btn-seed-data" class="bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 font-bold px-3 py-2 rounded-xl text-xs transition-colors">
+                <button id="btn-seed-data" class="rounded-full bg-secondary hover:bg-border text-secondary-foreground border border-border font-bold px-3.5 py-2 text-xs transition-colors">
                   Sample Data
                 </button>
               </div>
 
             </div>
-
           </div>
 
           <!-- Applications Processing Table -->
-          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+          <div class="bg-card rounded-2xl border border-border shadow-sm overflow-hidden">
             <div class="overflow-x-auto">
               <table class="w-full text-left border-collapse">
                 <thead>
-                  <tr class="bg-slate-50 text-[11px] font-bold text-slate-500 uppercase tracking-wider border-b border-slate-200">
+                  <tr class="bg-secondary/40 text-[11px] font-bold text-muted-foreground uppercase tracking-wider border-b border-border">
                     <th class="p-3.5">Tracking Code</th>
                     <th class="p-3.5">Aplikante</th>
                     <th class="p-3.5">Dokumento & Layunin</th>
                     <th class="p-3.5">Tirahan / Contact</th>
                     <th class="p-3.5">Kasalukuyang Status</th>
                     <th class="p-3.5">Iskedyul ng Pickup</th>
-                    <th class="p-3.5 text-right">Aksyon & Proseso</th>
+                    <th class="p-3.5 text-right">Aksyon</th>
                   </tr>
                 </thead>
-                <tbody id="admin-applications-table-body" class="divide-y divide-slate-100 text-xs">
-                  <!-- Injected dynamically by admin.js -->
+                <tbody id="admin-applications-table-body" class="divide-y divide-border text-xs">
+                  <!-- Injected dynamically -->
                 </tbody>
               </table>
             </div>
 
             <!-- Empty State -->
             <div id="table-empty-state" class="hidden p-12 text-center space-y-2">
-              <i data-lucide="inbox" class="w-10 h-10 mx-auto text-slate-300"></i>
-              <div class="text-sm font-bold text-slate-700">Walang nahanap na aplikasyon</div>
-              <p class="text-xs text-slate-400">Subukang baguhin ang filter o i-clear ang search box.</p>
+              <i data-lucide="inbox" class="w-10 h-10 mx-auto text-muted-foreground"></i>
+              <div class="text-sm font-bold text-foreground font-heading">Walang nahanap na aplikasyon</div>
+              <p class="text-xs text-muted-foreground">Subukang baguhin ang filter o i-clear ang search box.</p>
             </div>
           </div>
 
@@ -328,22 +354,22 @@
 
         <!-- ================= TAB 2: E-REKLAMO DESK ================= -->
         <div id="tab-content-reklamo" class="tab-pane hidden space-y-6">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-card p-5 rounded-2xl border border-border shadow-sm">
             <div>
-              <h3 class="text-base font-black text-slate-900">Talaan ng mga Ulat at e-Reklamo (BPSO Desk)</h3>
-              <p class="text-xs text-slate-500">Mga sumbong ng mamamayan hinggil sa peace and order, basura, streetlight, at iba pa.</p>
+              <h3 class="text-base font-black text-foreground font-heading">Talaan ng mga Ulat at e-Reklamo (BPSO Desk)</h3>
+              <p class="text-xs text-muted-foreground">Mga sumbong ng mamamayan hinggil sa peace and order, basura, streetlight, atbp.</p>
             </div>
-            <button id="btn-export-reklamo-csv" class="bg-rose-700 hover:bg-rose-600 text-white font-bold px-3 py-2 rounded-xl text-xs flex items-center gap-1.5 shadow-sm transition-colors self-start sm:self-auto">
+            <button id="btn-export-reklamo-csv" class="rounded-full bg-leaf text-white font-bold px-4 py-2 text-xs flex items-center gap-1.5 shadow-sm hover:bg-leaf-dark transition-colors self-start sm:self-auto">
               <i data-lucide="download" class="w-3.5 h-3.5"></i>
-              <span>Export Blotter Log</span>
+              <span>Export Blotter CSV</span>
             </button>
           </div>
 
-          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+          <div class="bg-card rounded-2xl border border-border shadow-sm overflow-hidden">
             <div class="overflow-x-auto">
               <table class="w-full text-left border-collapse">
                 <thead>
-                  <tr class="bg-slate-50 text-[11px] font-bold text-slate-500 uppercase tracking-wider border-b border-slate-200">
+                  <tr class="bg-secondary/40 text-[11px] font-bold text-muted-foreground uppercase tracking-wider border-b border-border">
                     <th class="p-3.5">Ticket #</th>
                     <th class="p-3.5">Nag-ulat & Contact</th>
                     <th class="p-3.5">Uri ng Sumbong</th>
@@ -353,7 +379,7 @@
                     <th class="p-3.5 text-right">Aksyon</th>
                   </tr>
                 </thead>
-                <tbody id="admin-reklamo-table-body" class="divide-y divide-slate-100 text-xs">
+                <tbody id="admin-reklamo-table-body" class="divide-y divide-border text-xs">
                   <!-- Dynamically populated -->
                 </tbody>
               </table>
@@ -363,27 +389,27 @@
 
         <!-- ================= TAB 3: PRINT STATION ================= -->
         <div id="tab-content-generator" class="tab-pane hidden space-y-6">
-          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
-            <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
-              <div class="p-3 bg-blue-100 text-blue-900 rounded-xl">
-                <i data-lucide="printer" class="w-6 h-6"></i>
-              </div>
+          <div class="bg-card p-6 rounded-2xl border border-border shadow-sm space-y-4">
+            <div class="flex items-center gap-3 border-b border-border pb-4">
+              <span class="flex size-11 items-center justify-center rounded-xl bg-secondary text-primary">
+                <i data-lucide="printer" class="size-6"></i>
+              </span>
               <div>
-                <h3 class="text-lg font-black text-slate-900">Opisyal na Tagapag-imprenta ng Barangay Clearance</h3>
-                <p class="text-xs text-slate-500">Pumili ng aplikasyon sa listahan o direktang gumawa ng sertipiko para sa walk-in resident.</p>
+                <h3 class="text-lg font-black font-heading text-foreground">Opisyal na Tagapag-imprenta ng Barangay Clearance</h3>
+                <p class="text-xs text-muted-foreground">Pumili ng aplikasyon sa listahan upang mag-print ng sertipiko para sa residente.</p>
               </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label class="block text-xs font-bold text-slate-700 mb-1">Pumili mula sa mga Naaprubahang Request:</label>
-                <select id="quick-print-select" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 text-xs font-semibold focus:ring-2 focus:ring-blue-600 focus:outline-none">
+                <label class="block text-xs font-bold text-foreground mb-1">Pumili mula sa mga Naaprubahang Request:</label>
+                <select id="quick-print-select" class="w-full bg-background border border-border rounded-xl p-2.5 text-xs font-semibold focus:bg-white focus:ring-2 focus:ring-primary focus:outline-none">
                   <option value="">-- Pumili ng Aplikante --</option>
                 </select>
               </div>
               <div class="flex items-end">
-                <button id="btn-trigger-quick-print" class="w-full bg-blue-900 hover:bg-blue-800 text-white font-bold py-2.5 rounded-xl text-xs shadow-md transition-all flex items-center justify-center gap-2">
-                  <i data-lucide="file-text" class="w-4 h-4 text-amber-300"></i>
+                <button id="btn-trigger-quick-print" class="w-full rounded-full bg-primary hover:bg-primary-hover text-primary-foreground font-bold py-2.5 text-xs shadow-sm transition-all flex items-center justify-center gap-2">
+                  <i data-lucide="file-text" class="w-4 h-4 text-sun"></i>
                   <span>I-preview at I-print ang Opisyal na Sertipiko</span>
                 </button>
               </div>
@@ -391,51 +417,48 @@
           </div>
         </div>
 
-        <!-- ================= TAB 4: GOOGLE SHEETS & SYSTEM SETTINGS ================= -->
+        <!-- ================= TAB 4: GOOGLE SHEETS SETTINGS ================= -->
         <div id="tab-content-settings" class="tab-pane hidden space-y-6">
-          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-6">
-            
-            <div class="border-b border-slate-100 pb-4">
-              <h3 class="text-lg font-black text-slate-900">Koneksyon sa Google Sheets Database</h3>
-              <p class="text-xs text-slate-500 mt-1">
+          <div class="bg-card p-6 rounded-2xl border border-border shadow-sm space-y-6">
+            <div class="border-b border-border pb-4">
+              <h3 class="text-lg font-black font-heading text-foreground">Koneksyon sa Google Sheets Database</h3>
+              <p class="text-xs text-muted-foreground mt-1">
                 Ikonekta ang portal sa isang libreng Google Sheets gamit ang Google Apps Script Webhook.
               </p>
             </div>
 
             <div class="space-y-4 max-w-2xl">
               <div>
-                <label class="block text-xs font-bold text-slate-700 mb-1">Google Apps Script Web App URL</label>
+                <label class="block text-xs font-bold text-foreground mb-1">Google Apps Script Web App URL</label>
                 <input 
                   type="url" 
                   id="settings-webhook-url" 
                   placeholder="https://script.google.com/macros/s/XXXXX/exec" 
-                  class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-xs font-mono focus:ring-2 focus:ring-blue-600 focus:outline-none"
+                  class="w-full bg-background border border-border rounded-xl p-3 text-xs font-mono focus:bg-white focus:ring-2 focus:ring-primary focus:outline-none"
                 >
-                <p class="text-[11px] text-slate-400 mt-1">
-                  Nasa loob ng repository ang script na <code class="font-bold text-blue-700">google-sheets-integration.js</code> na handang i-paste sa Google Sheets Apps Script.
+                <p class="text-[11px] text-muted-foreground mt-1">
+                  Nasa loob ng repository ang script na <code class="font-bold text-primary">google-sheets-integration.js</code> na handang i-paste sa Google Sheets Apps Script.
                 </p>
               </div>
 
               <div class="flex items-center gap-3 pt-2">
-                <button id="btn-save-webhook" class="bg-blue-900 hover:bg-blue-800 text-white font-bold px-5 py-2.5 rounded-xl text-xs shadow-sm transition-all flex items-center gap-2">
+                <button id="btn-save-webhook" class="rounded-full bg-primary hover:bg-primary-hover text-primary-foreground font-bold px-5 py-2.5 text-xs shadow-sm transition-all flex items-center gap-2">
                   <i data-lucide="save" class="w-4 h-4"></i>
                   <span>I-save ang Webhook URL</span>
                 </button>
-                <button id="btn-test-webhook" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-4 py-2.5 rounded-xl text-xs transition-colors border border-slate-300">
+                <button id="btn-test-webhook" class="rounded-full bg-secondary hover:bg-border text-secondary-foreground font-bold px-4 py-2.5 text-xs transition-colors border border-border">
                   Subukan ang Koneksyon
                 </button>
               </div>
             </div>
 
-            <!-- Danger Zone -->
-            <div class="pt-6 border-t border-slate-100">
-              <h4 class="text-xs font-bold text-red-600 uppercase tracking-wider mb-2">Panganib na Aksyon (Data Reset)</h4>
-              <p class="text-xs text-slate-500 mb-3">Kung nais i-clear ang lahat ng records at bumalik sa default demo state:</p>
-              <button id="btn-wipe-database" class="bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 font-bold px-4 py-2 rounded-xl text-xs transition-colors">
+            <div class="pt-6 border-t border-border">
+              <h4 class="text-xs font-bold text-red-600 uppercase tracking-wider mb-2">Reset Database</h4>
+              <p class="text-xs text-muted-foreground mb-3">Kung nais i-clear ang lahat ng records at bumalik sa default demo state:</p>
+              <button id="btn-wipe-database" class="rounded-full bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 font-bold px-4 py-2 text-xs transition-colors">
                 Burahin ang Lahat ng Lokal na Aplikasyon (Reset DB)
               </button>
             </div>
-
           </div>
         </div>
 
@@ -445,80 +468,79 @@
   </div>
 
   <!-- ================= DETAILED APPLICATION PROCESSING MODAL ================= -->
-  <div id="processing-modal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-    <div class="bg-white w-full max-w-2xl rounded-2xl shadow-2xl border border-slate-200 overflow-hidden relative my-8">
+  <div id="processing-modal" class="fixed inset-0 z-50 hidden bg-leaf-dark/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-card w-full max-w-2xl rounded-2xl shadow-2xl border border-border overflow-hidden relative my-8">
       
       <!-- Modal Header -->
-      <div class="bg-gradient-to-r from-blue-900 to-blue-950 text-white p-5 flex items-center justify-between">
+      <div class="bg-leaf text-primary-foreground p-5 flex items-center justify-between">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-amber-400 font-black">
-            <i data-lucide="clipboard-check" class="w-5 h-5"></i>
+          <div class="size-10 rounded-full bg-sun text-sun-foreground flex items-center justify-center font-black">
+            <i data-lucide="clipboard-check" class="size-5"></i>
           </div>
           <div>
-            <h3 class="font-extrabold text-base leading-tight">Pagproseso ng Aplikasyon</h3>
-            <div id="modal-app-code" class="text-xs text-blue-200 font-mono font-bold">BIT-2026-XXXXX</div>
+            <h3 class="font-extrabold text-base leading-tight font-heading">Pagproseso ng Aplikasyon</h3>
+            <div id="modal-app-code" class="text-xs text-emerald-200 font-mono font-bold">BIT-2026-XXXXX</div>
           </div>
         </div>
-        <button id="close-processing-modal" class="text-white/70 hover:text-white p-1 rounded-lg hover:bg-white/10 transition-colors">
-          <i data-lucide="x" class="w-5 h-5"></i>
+        <button id="close-processing-modal" class="text-primary-foreground/70 hover:text-white p-1 rounded-lg hover:bg-white/10 transition-colors">
+          <i data-lucide="x" class="size-5"></i>
         </button>
       </div>
 
       <!-- Modal Body -->
       <div class="p-6 space-y-5">
         
-        <!-- Applicant Profile Card -->
-        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+        <div class="bg-secondary/40 p-4 rounded-xl border border-border grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
           <div>
-            <span class="text-slate-400 font-medium">Buong Pangalan:</span>
-            <div id="modal-app-name" class="text-sm font-black text-slate-900 mt-0.5">-</div>
+            <span class="text-muted-foreground">Buong Pangalan:</span>
+            <div id="modal-app-name" class="text-sm font-black text-foreground font-heading mt-0.5">-</div>
           </div>
           <div>
-            <span class="text-slate-400 font-medium">Dokumentong Hinihingi:</span>
-            <div id="modal-app-doc" class="text-sm font-black text-blue-900 mt-0.5">-</div>
+            <span class="text-muted-foreground">Dokumentong Hinihingi:</span>
+            <div id="modal-app-doc" class="text-sm font-black text-primary font-heading mt-0.5">-</div>
           </div>
           <div>
-            <span class="text-slate-400 font-medium">Mobile Number:</span>
-            <div id="modal-app-phone" class="font-bold text-slate-800 mt-0.5">-</div>
+            <span class="text-muted-foreground">Mobile Number:</span>
+            <div id="modal-app-phone" class="font-bold text-foreground mt-0.5">-</div>
           </div>
           <div>
-            <span class="text-slate-400 font-medium">Tirahan sa Ibayo-Tipas:</span>
-            <div id="modal-app-address" class="font-bold text-slate-800 mt-0.5">-</div>
+            <span class="text-muted-foreground">Tirahan sa Ibayo-Tipas:</span>
+            <div id="modal-app-address" class="font-bold text-foreground mt-0.5">-</div>
           </div>
-          <div class="sm:col-span-2 pt-2 border-t border-slate-200/80">
-            <span class="text-slate-400 font-medium">Layunin (Purpose):</span>
-            <div id="modal-app-purpose" class="font-semibold text-slate-800 mt-0.5">-</div>
+          <div class="sm:col-span-2 pt-2 border-t border-border">
+            <span class="text-muted-foreground">Layunin (Purpose):</span>
+            <div id="modal-app-purpose" class="font-semibold text-foreground mt-0.5">-</div>
           </div>
         </div>
 
         <!-- Verification Checklist -->
         <div class="space-y-2">
-          <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider">Beripikasyon ng mga Dokumento:</h4>
+          <h4 class="text-xs font-bold text-foreground uppercase tracking-wider font-heading">Beripikasyon ng mga Dokumento:</h4>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-            <label class="flex items-center gap-2 p-2 bg-slate-50 rounded-lg border border-slate-200 cursor-pointer">
-              <input type="checkbox" id="chk-valid-id" checked class="rounded text-blue-600 focus:ring-blue-500">
+            <label class="flex items-center gap-2 p-2.5 bg-background rounded-xl border border-border cursor-pointer">
+              <input type="checkbox" id="chk-valid-id" checked class="rounded text-primary focus:ring-primary">
               <span>Lehitimong Residente / Valid ID</span>
             </label>
-            <label class="flex items-center gap-2 p-2 bg-slate-50 rounded-lg border border-slate-200 cursor-pointer">
-              <input type="checkbox" id="chk-cedula" checked class="rounded text-blue-600 focus:ring-blue-500">
+            <label class="flex items-center gap-2 p-2.5 bg-background rounded-xl border border-border cursor-pointer">
+              <input type="checkbox" id="chk-cedula" checked class="rounded text-primary focus:ring-primary">
               <span>Community Tax (Cedula 2026)</span>
             </label>
-            <label class="flex items-center gap-2 p-2 bg-slate-50 rounded-lg border border-slate-200 cursor-pointer">
-              <input type="checkbox" id="chk-derogatory" checked class="rounded text-blue-600 focus:ring-blue-500">
+            <label class="flex items-center gap-2 p-2.5 bg-background rounded-xl border border-border cursor-pointer">
+              <input type="checkbox" id="chk-derogatory" checked class="rounded text-primary focus:ring-primary">
               <span>Walang Reklamo sa Lupon Desk</span>
             </label>
-            <label class="flex items-center gap-2 p-2 bg-slate-50 rounded-lg border border-slate-200 cursor-pointer">
-              <input type="checkbox" id="chk-fee" checked class="rounded text-blue-600 focus:ring-blue-500">
+            <label class="flex items-center gap-2 p-2.5 bg-background rounded-xl border border-border cursor-pointer">
+              <input type="checkbox" id="chk-fee" checked class="rounded text-primary focus:ring-primary">
               <span>Bayad Na / Libre (RA 11261)</span>
             </label>
           </div>
         </div>
 
         <!-- Status Change Dropdown & Remarks -->
-        <div class="space-y-3 pt-2 border-t border-slate-100">
+        <div class="space-y-3 pt-2 border-t border-border">
           <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1">Palitan ang Status ng Aplikasyon:</label>
-            <select id="modal-status-select" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-2.5 text-xs font-bold text-slate-900 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none">
+            <label class="block text-xs font-bold text-foreground mb-1">Palitan ang Status ng Aplikasyon:</label>
+            <select id="modal-status-select" class="w-full bg-background border border-border rounded-xl p-2.5 text-xs font-bold text-foreground focus:bg-white focus:ring-2 focus:ring-primary focus:outline-none">
               <option value="Under Review">Under Review (Sinusuri ng Staff)</option>
               <option value="Processing">Processing (Inihahanda ang Dokumento)</option>
               <option value="For Signature">For Signature (Nasa Mesa ni PB Willy Flores)</option>
@@ -529,26 +551,26 @@
           </div>
 
           <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1">Opisyal na Tala / Remarks para sa Residente:</label>
-            <input type="text" id="modal-remarks-input" placeholder="Hal. Pakidala ang orihinal na ID sa Releasing Window 2" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none">
+            <label class="block text-xs font-bold text-foreground mb-1">Opisyal na Tala / Remarks para sa Residente:</label>
+            <input type="text" id="modal-remarks-input" placeholder="Hal. Pakidala ang orihinal na ID sa Releasing Window" class="w-full bg-background border border-border rounded-xl px-3 py-2 text-xs focus:bg-white focus:ring-2 focus:ring-primary focus:outline-none">
           </div>
         </div>
 
       </div>
 
       <!-- Modal Footer -->
-      <div class="p-4 bg-slate-50 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
-        <button id="modal-btn-print-cert" class="bg-indigo-700 hover:bg-indigo-600 text-white font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-1.5 transition-colors">
-          <i data-lucide="printer" class="w-3.5 h-3.5"></i>
+      <div class="p-4 bg-secondary/30 border-t border-border flex flex-wrap items-center justify-between gap-3">
+        <button id="modal-btn-print-cert" class="rounded-full bg-leaf text-white font-bold px-4 py-2 text-xs flex items-center gap-1.5 hover:bg-leaf-dark transition-colors">
+          <i data-lucide="printer" class="size-3.5"></i>
           <span>I-print ang Sertipiko</span>
         </button>
 
         <div class="flex items-center gap-2">
-          <button id="modal-btn-cancel" class="px-4 py-2 text-xs font-bold text-slate-600 hover:bg-slate-200 rounded-xl transition-colors">
+          <button id="modal-btn-cancel" class="px-4 py-2 text-xs font-bold text-muted-foreground hover:bg-secondary rounded-full transition-colors">
             Isara
           </button>
-          <button id="modal-btn-save-status" class="bg-blue-900 hover:bg-blue-800 text-white font-bold px-5 py-2 rounded-xl text-xs shadow-md transition-all flex items-center gap-1.5">
-            <i data-lucide="check" class="w-4 h-4"></i>
+          <button id="modal-btn-save-status" class="rounded-full bg-primary hover:bg-primary-hover text-primary-foreground font-bold px-5 py-2 text-xs shadow-sm transition-all flex items-center gap-1.5">
+            <i data-lucide="check" class="size-4"></i>
             <span>I-save ang Pagbabago</span>
           </button>
         </div>
@@ -557,34 +579,29 @@
     </div>
   </div>
 
-  <!-- ================= PRINTABLE CERTIFICATE MODAL / VIEW ================= -->
-  <div id="printable-certificate-modal" class="fixed inset-0 z-50 hidden bg-slate-900/70 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+  <!-- ================= PRINTABLE CERTIFICATE MODAL ================= -->
+  <div id="printable-certificate-modal" class="fixed inset-0 z-50 hidden bg-leaf-dark/70 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
     <div class="bg-white w-full max-w-3xl rounded-xl shadow-2xl p-8 sm:p-12 relative my-8 text-slate-900 font-serif border border-slate-300">
       
-      <!-- Close & Print buttons (hidden in print) -->
       <div class="no-print absolute top-4 right-4 flex items-center gap-2">
-        <button onclick="window.print()" class="bg-blue-900 text-white text-xs font-sans font-bold px-4 py-2 rounded-lg shadow-md hover:bg-blue-800 flex items-center gap-1.5">
-          <i data-lucide="printer" class="w-3.5 h-3.5"></i>
+        <button onclick="window.print()" class="rounded-full bg-primary hover:bg-primary-hover text-white text-xs font-sans font-bold px-4 py-2 shadow-sm flex items-center gap-1.5">
+          <i data-lucide="printer" class="size-3.5"></i>
           <span>I-print (Ctrl + P)</span>
         </button>
-        <button id="close-print-cert-modal" class="bg-slate-200 text-slate-700 text-xs font-sans font-bold px-3 py-2 rounded-lg hover:bg-slate-300">
+        <button id="close-print-cert-modal" class="rounded-full bg-slate-200 text-slate-700 text-xs font-sans font-bold px-3 py-2 hover:bg-slate-300">
           Isara
         </button>
       </div>
 
-      <!-- Formal Certificate Layout -->
       <div class="border-4 border-double border-slate-900 p-8 sm:p-12 relative">
-        
-        <!-- Header -->
         <div class="text-center space-y-1 mb-8">
           <div class="text-xs uppercase tracking-widest text-slate-600">Republika ng Pilipinas</div>
           <div class="text-sm uppercase tracking-widest text-slate-800">Lungsod ng Taguig</div>
-          <div class="text-lg font-black tracking-wide text-blue-950 font-sans">BARANGAY IBAYO-TIPAS</div>
-          <div class="text-[11px] text-slate-500 font-sans">Tanggapan ng Punong Barangay • 17 Dr. Natividad St.</div>
+          <div class="text-lg font-black tracking-wide text-emerald-950 font-sans">BARANGAY IBAYO-TIPAS</div>
+          <div class="text-[11px] text-slate-500 font-sans">Tanggapan ng Punong Barangay • 700 Dr. Natividad St.</div>
           <div class="w-24 h-1 bg-amber-500 mx-auto mt-2"></div>
         </div>
 
-        <!-- Certificate Title -->
         <div class="text-center my-8">
           <h2 id="cert-print-title" class="text-2xl sm:text-3xl font-black uppercase tracking-wider text-slate-900 underline decoration-2 underline-offset-8">
             BARANGAY CLEARANCE
@@ -594,11 +611,10 @@
           </div>
         </div>
 
-        <!-- Body text -->
         <div class="text-sm leading-relaxed space-y-4 my-8 text-justify">
           <p class="font-bold">SA KINAUUKULAN:</p>
           <p class="indent-8">
-            Ipinagkakaloob ang pagpapatunay na ito kay <strong id="cert-print-name" class="uppercase text-slate-950 underline decoration-slate-400">JUAN DELA CRUZ</strong>, may sapat na gulang, mamamayang Pilipino, at lehitimong naninirahan sa <span id="cert-print-address" class="font-bold">#17 Dr. Natividad St., Barangay Ibayo-Tipas, Lungsod ng Taguig</span>.
+            Ipinagkakaloob ang pagpapatunay na ito kay <strong id="cert-print-name" class="uppercase text-slate-950 underline decoration-slate-400">JUAN DELA CRUZ</strong>, may sapat na gulang, mamamayang Pilipino, at lehitimong naninirahan sa <span id="cert-print-address" class="font-bold">700 Dr. Natividad St., Barangay Ibayo-Tipas, Lungsod ng Taguig</span>.
           </p>
           <p class="indent-8">
             Ayon sa aming talaan, ang nabanggit na mamamayan ay may magandang asal sa komunidad, walang anumang derogatory record o kasong nakabinbin sa Tanggapan ng Lupon Tagapamayapa ng Barangay.
@@ -611,9 +627,7 @@
           </p>
         </div>
 
-        <!-- Signatures Section -->
         <div class="mt-16 pt-8 grid grid-cols-2 gap-8 items-end font-sans">
-          
           <div class="text-center space-y-1">
             <div class="w-20 h-20 rounded-full border-2 border-dashed border-slate-300 mx-auto flex items-center justify-center text-[10px] text-slate-400 uppercase">
               Official Dry Seal
@@ -626,12 +640,10 @@
             <div class="pt-6 font-black text-sm text-slate-950 uppercase border-b border-slate-900 inline-block px-4">
               HON. WILLY FLORES
             </div>
-            <div class="text-xs font-bold text-blue-950">Punong Barangay</div>
+            <div class="text-xs font-bold text-emerald-950">Punong Barangay</div>
             <div class="text-[10px] text-slate-500">Barangay Ibayo-Tipas, Taguig City</div>
           </div>
-
         </div>
-
       </div>
 
     </div>

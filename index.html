@@ -3,30 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Barangay Ibayo-Tipas | Opisyal na Web Portal | Lungsod ng Taguig</title>
+  <title>Barangay Ibayo-Tipas, Taguig City — Official Website</title>
   
   <!-- Meta tags for SEO & Social Sharing -->
-  <meta name="description" content="Opisyal na website ng Barangay Ibayo-Tipas, Lungsod ng Taguig. Mag-request ng Barangay Clearance, alamin ang mga balita at anunsyo, at tawagan ang mga emergency hotline.">
-  <meta property="og:title" content="Barangay Ibayo-Tipas | Taguig City Official Portal">
-  <meta property="og:description" content="Serbisyong Tapat at Maaasahan sa pamumuno ni PB Willy Flores. Clearances, Health Center, Anunsyo, at Emergency Hotline.">
-  <meta property="og:url" content="https://www.facebook.com/profile.php?id=100092404114029">
+  <meta name="description" content="Official website of Barangay Ibayo-Tipas, Taguig City. Read announcements, request barangay documents, and learn about community programs.">
+  <meta property="og:title" content="Barangay Ibayo-Tipas, Taguig City — Official Website">
+  <meta property="og:description" content="Official website of Barangay Ibayo-Tipas, Taguig City. Read announcements, request barangay documents, and learn about community programs.">
+  <meta property="og:url" content="https://brgyibayotipas.lovable.app/">
   <meta property="og:type" content="website">
 
-  <!-- Tailwind CSS CDN -->
+  <!-- Google Fonts: Bricolage Grotesque & Public Sans (Matching Lovable theme) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN with Lovable Theme Configuration -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            brand: {
-              navy: '#1e3a8a',
-              blue: '#2563eb',
-              lightBlue: '#eff6ff',
-              red: '#dc2626',
-              gold: '#f59e0b',
-              dark: '#0f172a'
-            }
+            leaf: {
+              DEFAULT: '#143d2c',
+              dark: '#0e2b1f',
+              light: '#1e5941'
+            },
+            primary: {
+              DEFAULT: '#1f6a4e',
+              foreground: '#f8faf8',
+              hover: '#17543d'
+            },
+            sun: {
+              DEFAULT: '#f59e0b',
+              foreground: '#3b1d03',
+              hover: '#d97706'
+            },
+            background: '#f7faf8',
+            foreground: '#1c2822',
+            card: '#ffffff',
+            secondary: {
+              DEFAULT: '#e8f1eb',
+              foreground: '#1c4b37'
+            },
+            muted: {
+              DEFAULT: '#edf3ef',
+              foreground: '#526b5e'
+            },
+            border: '#dce3de'
+          },
+          fontFamily: {
+            heading: ['"Bricolage Grotesque"', 'sans-serif'],
+            sans: ['"Public Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif']
           }
         }
       }
@@ -39,452 +67,391 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased font-sans flex flex-col min-h-screen">
+<body class="bg-background text-foreground antialiased font-sans flex flex-col min-h-screen">
 
   <!-- ================= TOP GOV BANNER ================= -->
-  <div class="bg-slate-900 text-slate-200 text-xs py-1.5 px-4 border-b border-slate-800">
-    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
-      <div class="flex items-center gap-2">
-        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400"></span>
-        <span class="font-medium tracking-wide">Republika ng Pilipinas • Lungsod ng Taguig • Barangay Ibayo-Tipas</span>
+  <div class="bg-[#0f2e21] text-emerald-100/90 text-xs py-2 px-4 border-b border-emerald-950">
+    <div class="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-2">
+      <div class="flex items-center gap-2 font-medium">
+        <span class="inline-block w-2 h-2 rounded-full bg-sun"></span>
+        <span>Republika ng Pilipinas • Lungsod ng Taguig • Barangay Ibayo-Tipas</span>
       </div>
-      <div class="flex items-center gap-4 text-[11px] text-slate-400">
-        <a href="https://www.facebook.com/profile.php?id=100092404114029" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 flex items-center gap-1 transition-colors">
-          <i data-lucide="facebook" class="w-3.5 h-3.5"></i>
-          <span>Facebook Page: @Barangay Ibayo-Tipas</span>
-        </a>
+      <div class="flex items-center gap-4 text-[11px] text-emerald-200/80">
+        <span class="hidden sm:inline">🕒 Lunes – Biyernes, 7:00 AM – 4:00 PM</span>
         <span class="hidden sm:inline">|</span>
-        <span class="hidden sm:inline">Oras ng Tanggapan: Lunes - Biyernes (8:00 AM - 5:00 PM)</span>
+        <a href="tel:09189620231" class="hover:text-sun transition-colors flex items-center gap-1 font-semibold">
+          <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+          <span>0918 962 0231 / (02) 8525-9348</span>
+        </a>
       </div>
     </div>
   </div>
 
   <!-- ================= MAIN HEADER / NAVBAR ================= -->
-  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-20">
-        
-        <!-- Logo & Branding -->
-        <a href="#" class="flex items-center gap-3 group">
-          <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-blue-900 via-blue-800 to-red-600 flex items-center justify-center text-white shadow-md border-2 border-amber-400">
-            <span class="font-black text-xl tracking-tight">BIT</span>
-          </div>
-          <div class="flex flex-col">
-            <span class="text-lg font-extrabold text-blue-950 tracking-tight leading-tight group-hover:text-blue-700 transition-colors">
-              BARANGAY IBAYO-TIPAS
-            </span>
-            <span class="text-xs font-semibold text-red-600 uppercase tracking-wider">
-              Lungsod ng Taguig • Metro Manila
-            </span>
-          </div>
+  <header class="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-md">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+      
+      <!-- Logo & Branding -->
+      <a href="#" class="flex items-center gap-2.5 group">
+        <span class="flex size-10 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-sm group-hover:scale-105 transition-transform">
+          <i data-lucide="leaf" class="size-5"></i>
+        </span>
+        <span class="leading-tight">
+          <span class="block font-bold text-foreground font-heading text-base group-hover:text-primary transition-colors">
+            Barangay Ibayo-Tipas
+          </span>
+          <span class="block text-xs text-muted-foreground font-medium">
+            Taguig City · Tuloy ang Serbisyo!
+          </span>
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Pills -->
+      <nav class="hidden items-center gap-1 md:flex">
+        <a href="#home" class="rounded-full px-4 py-2 text-sm font-semibold text-primary-foreground bg-primary transition-colors">
+          Home
+        </a>
+        <a href="#about" class="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-secondary-foreground">
+          About
+        </a>
+        <a href="#services" class="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-secondary-foreground">
+          Services
+        </a>
+        <a href="#tracker" class="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-secondary-foreground flex items-center gap-1.5">
+          <i data-lucide="search" class="w-3.5 h-3.5"></i>
+          <span>Tracker</span>
+        </a>
+        <a href="#announcements" class="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-secondary-foreground">
+          Announcements
+        </a>
+        <a href="#health" class="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-secondary-foreground">
+          Health Center
+        </a>
+        <a href="#reklamo" class="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-secondary-foreground">
+          e-Reklamo
+        </a>
+        <a href="#contact" class="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-secondary-foreground">
+          Contact
+        </a>
+      </nav>
+
+      <!-- Right Side Actions -->
+      <div class="hidden sm:flex items-center gap-2.5">
+        <a href="admin.html" class="rounded-full border border-border px-3.5 py-1.5 text-xs font-bold text-foreground hover:bg-secondary transition-colors flex items-center gap-1.5">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5 text-primary"></i>
+          <span>Admin Portal</span>
         </a>
 
-        <!-- Desktop Navigation Links -->
-        <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-700">
-          <a href="#home" class="hover:text-blue-700 transition-colors py-1">Tahanan</a>
-          <a href="#services" class="hover:text-blue-700 transition-colors py-1">Mga Serbisyo</a>
-          <a href="#tracker" class="text-blue-700 font-extrabold hover:text-blue-900 transition-colors py-1 flex items-center gap-1">
-            <i data-lucide="search" class="w-3.5 h-3.5"></i>
-            <span>Subaybayan</span>
-          </a>
-          <a href="#announcements" class="hover:text-blue-700 transition-colors py-1">Mga Anunsyo</a>
-          <a href="#health" class="hover:text-blue-700 transition-colors py-1">Health Center</a>
-          <a href="#leadership" class="hover:text-blue-700 transition-colors py-1">Pamunuan</a>
-          <a href="#reklamo" class="hover:text-blue-700 transition-colors py-1">Ulat / Reklamo</a>
-          <a href="#contact" class="hover:text-blue-700 transition-colors py-1">Kontak</a>
-        </nav>
-
-        <!-- Right Side Quick Actions -->
-        <div class="hidden sm:flex items-center gap-2.5">
-          <!-- Admin Portal Link -->
-          <a href="admin.html" class="flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-blue-900 bg-slate-100 hover:bg-slate-200 px-3 py-2 rounded-xl border border-slate-300 transition-colors shadow-sm">
-            <i data-lucide="shield-check" class="w-3.5 h-3.5 text-blue-900"></i>
-            <span>Admin Portal</span>
-          </a>
-
-          <!-- Language Switcher -->
-          <button id="lang-toggle-btn" class="text-xs font-bold px-2.5 py-1.5 rounded-lg border border-slate-300 text-slate-700 hover:bg-slate-100 transition-colors">
-            EN
-          </button>
-
-          <!-- Emergency Pill -->
-          <a href="tel:09627438455" class="flex items-center gap-2 bg-red-50 text-red-700 border border-red-200 px-3 py-1.5 rounded-full text-xs font-bold hover:bg-red-100 transition-colors">
-            <span class="w-2 h-2 rounded-full bg-red-600 animate-ping"></span>
-            <span>🚨 0962 743 8455 (Medic)</span>
-          </a>
-
-          <!-- Request Document CTA -->
-          <button class="open-request-modal bg-blue-900 hover:bg-blue-800 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2">
-            <i data-lucide="file-text" class="w-4 h-4"></i>
-            <span>Online Request</span>
-          </button>
-        </div>
-
-        <!-- Mobile Menu Hamburger Button -->
-        <div class="flex items-center gap-2 lg:hidden">
-          <button class="open-request-modal bg-blue-900 text-white px-3 py-1.5 rounded-lg text-xs font-bold">
-            Request
-          </button>
-          <button id="mobile-menu-btn" class="p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none">
-            <i data-lucide="menu" class="w-6 h-6"></i>
-          </button>
-        </div>
-
+        <button class="open-request-modal rounded-full bg-sun hover:bg-sun-hover text-sun-foreground font-bold px-4 py-2 text-xs shadow-sm transition-transform hover:scale-105 flex items-center gap-1.5">
+          <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+          <span>Request Online</span>
+        </button>
       </div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button id="mobile-menu-btn" class="rounded-md p-2 text-foreground md:hidden hover:bg-secondary" aria-label="Toggle menu">
+        <i data-lucide="menu" class="size-6"></i>
+      </button>
+
     </div>
 
     <!-- Mobile Dropdown Navigation -->
-    <div id="mobile-nav" class="hidden lg:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-2 shadow-lg">
-      <a href="#home" class="block py-2 text-sm font-semibold text-slate-700 hover:text-blue-700">Tahanan</a>
-      <a href="#services" class="block py-2 text-sm font-semibold text-slate-700 hover:text-blue-700">Mga Serbisyo</a>
-      <a href="#tracker" class="block py-2 text-sm font-bold text-blue-700 hover:text-blue-900">🔍 Subaybayan (Tracker)</a>
-      <a href="#announcements" class="block py-2 text-sm font-semibold text-slate-700 hover:text-blue-700">Mga Anunsyo</a>
-      <a href="#health" class="block py-2 text-sm font-semibold text-slate-700 hover:text-blue-700">Health Center</a>
-      <a href="#leadership" class="block py-2 text-sm font-semibold text-slate-700 hover:text-blue-700">Pamunuan</a>
-      <a href="#reklamo" class="block py-2 text-sm font-semibold text-slate-700 hover:text-blue-700">Ulat / Reklamo</a>
-      <a href="#contact" class="block py-2 text-sm font-semibold text-slate-700 hover:text-blue-700">Kontak at Lokasyon</a>
+    <div id="mobile-nav" class="hidden md:hidden border-t border-border bg-white px-4 pt-3 pb-6 space-y-2 shadow-lg">
+      <a href="#home" class="block py-2 text-sm font-bold text-primary">Home</a>
+      <a href="#about" class="block py-2 text-sm font-medium text-muted-foreground hover:text-foreground">About</a>
+      <a href="#services" class="block py-2 text-sm font-medium text-muted-foreground hover:text-foreground">Services</a>
+      <a href="#tracker" class="block py-2 text-sm font-bold text-primary flex items-center gap-1">
+        <i data-lucide="search" class="w-4 h-4"></i>
+        <span>Document Tracker</span>
+      </a>
+      <a href="#announcements" class="block py-2 text-sm font-medium text-muted-foreground hover:text-foreground">Announcements</a>
+      <a href="#health" class="block py-2 text-sm font-medium text-muted-foreground hover:text-foreground">Health Center</a>
+      <a href="#reklamo" class="block py-2 text-sm font-medium text-muted-foreground hover:text-foreground">e-Reklamo</a>
+      <a href="#contact" class="block py-2 text-sm font-medium text-muted-foreground hover:text-foreground">Contact</a>
       
-      <div class="pt-3 border-t border-slate-100 flex flex-col gap-2">
-        <a href="tel:09627438455" class="w-full text-center py-2.5 rounded-lg bg-red-600 text-white font-bold text-xs">
-          🚨 Tawagan ang Medic / Ambulance: 0962 743 8455
+      <div class="pt-3 border-t border-border flex flex-col gap-2">
+        <a href="admin.html" class="w-full text-center py-2.5 rounded-full bg-secondary text-secondary-foreground font-bold text-xs flex items-center justify-center gap-1.5">
+          <i data-lucide="shield-check" class="w-4 h-4 text-primary"></i>
+          <span>Admin & Processing Portal</span>
         </a>
-        <a href="tel:09189620231" class="w-full text-center py-2.5 rounded-lg bg-blue-900 text-white font-bold text-xs">
-          📞 Barangay Hall Hotline: 0918 962 0231
-        </a>
+        <button class="open-request-modal w-full text-center py-2.5 rounded-full bg-sun text-sun-foreground font-bold text-xs">
+          📄 Mag-request ng Dokumento Online
+        </button>
       </div>
     </div>
   </header>
 
-  <!-- ================= EMERGENCY QUICK ACCESS BAR ================= -->
-  <section class="bg-gradient-to-r from-red-600 via-rose-600 to-red-700 text-white py-3 px-4 shadow-inner">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-sm">
-      <div class="flex items-center gap-2 font-bold tracking-wide">
-        <span class="p-1.5 bg-white/20 rounded-lg">
-          <i data-lucide="phone-call" class="w-4 h-4"></i>
-        </span>
-        <span>24/7 MGA NUMERONG PANG-EMERGENCY NG IBAYO-TIPAS:</span>
-      </div>
-      <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs font-semibold">
-        <a href="tel:09627438455" class="bg-white text-red-700 hover:bg-red-50 px-3 py-1.5 rounded-lg flex items-center gap-1.5 shadow-sm transition-transform active:scale-95">
-          <i data-lucide="ambulance" class="w-3.5 h-3.5"></i>
-          <span>Medic & Ambulance: <strong>0962 743 8455</strong></span>
-        </a>
-        <a href="tel:09189620231" class="bg-white/10 hover:bg-white/20 border border-white/30 text-white px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-colors">
-          <i data-lucide="shield-alert" class="w-3.5 h-3.5"></i>
-          <span>Barangay Hall / BPSO: <strong>0918 962 0231</strong></span>
-        </a>
-        <a href="tel:09617340886" class="bg-white/10 hover:bg-white/20 border border-white/30 text-white px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-colors">
-          <i data-lucide="heart-pulse" class="w-3.5 h-3.5"></i>
-          <span>Health Center: <strong>0961 734 0886</strong></span>
-        </a>
-      </div>
-    </div>
-  </section>
+  <!-- ================= HERO SECTION (LOVABLE THEME) ================= -->
+  <section id="home" class="relative overflow-hidden bg-leaf">
+    <!-- Atmospheric background gradient & subtle lighting -->
+    <div class="absolute inset-0 bg-gradient-to-r from-leaf-dark/95 via-leaf/85 to-leaf-light/75 z-0"></div>
+    <div class="absolute -right-20 -bottom-20 w-96 h-96 rounded-full bg-sun/10 pointer-events-none filter blur-3xl z-0"></div>
 
-  <!-- ================= HERO SECTION ================= -->
-  <section id="home" class="relative hero-gradient py-16 sm:py-20 border-b border-slate-200 overflow-hidden">
-    <!-- Subtle Background watermark -->
-    <div class="absolute -right-20 -bottom-20 w-96 h-96 rounded-full bg-blue-100/50 pointer-events-none filter blur-3xl"></div>
-    <div class="absolute -left-20 -top-20 w-96 h-96 rounded-full bg-red-100/40 pointer-events-none filter blur-3xl"></div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        
-        <!-- Left Column: Copy & CTAs -->
-        <div class="lg:col-span-7 space-y-6">
-          
-          <div class="inline-flex items-center gap-2 bg-blue-100/80 border border-blue-200 text-blue-900 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
-            <span class="w-2 h-2 rounded-full bg-blue-600"></span>
-            <span>Pamunuan ni PB Willy Flores • Team Ibayo-Tipas</span>
-          </div>
-
-          <h1 id="hero-title-text" class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-            Opisyal na Portal ng <span class="text-blue-900">Barangay Ibayo-Tipas</span>, Lungsod ng Taguig
-          </h1>
-
-          <p id="hero-subtitle-text" class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
-            Serbisyong tapat, mabilis, at laging maaasahan para sa bawat Tipaseno. Mag-apply ng clearances online, alamin ang mga anunsyo ng komunidad, at makipag-ugnayan sa health center anumang oras.
-          </p>
-
-          <!-- Action buttons -->
-          <div class="flex flex-wrap items-center gap-4 pt-2">
-            <button class="open-request-modal bg-blue-900 hover:bg-blue-800 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center gap-2 text-sm sm:text-base">
-              <i data-lucide="file-check" class="w-5 h-5 text-amber-300"></i>
-              <span id="hero-btn-request">Mag-request ng Dokumento</span>
-            </button>
-            <a href="tel:09627438455" class="bg-white hover:bg-slate-100 text-red-600 font-bold px-5 py-3.5 rounded-xl border border-red-200 shadow-sm transition-all flex items-center gap-2 text-sm sm:text-base">
-              <i data-lucide="phone-call" class="w-5 h-5"></i>
-              <span id="hero-btn-hotlines">Tawagan ang Emergency</span>
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=100092404114029" target="_blank" rel="noopener noreferrer" class="bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold px-4 py-3.5 rounded-xl border border-blue-200 transition-all flex items-center gap-2 text-sm">
-              <i data-lucide="facebook" class="w-5 h-5 text-blue-600"></i>
-              <span>Facebook Page</span>
-            </a>
-          </div>
-
-          <!-- Trust Badges -->
-          <div class="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-slate-200/80">
-            <div class="flex flex-col">
-              <span class="text-2xl font-black text-blue-950">7,000+</span>
-              <span class="text-xs text-slate-500 font-medium">Online Followers</span>
-            </div>
-            <div class="flex flex-col">
-              <span class="text-2xl font-black text-red-600">24 / 7</span>
-              <span class="text-xs text-slate-500 font-medium">Ambulance & BPSO</span>
-            </div>
-            <div class="flex flex-col">
-              <span class="text-2xl font-black text-emerald-600">100% Free</span>
-              <span class="text-xs text-slate-500 font-medium">First-time Jobseekers</span>
-            </div>
-            <div class="flex flex-col">
-              <span class="text-2xl font-black text-amber-600">Tipas Pride</span>
-              <span class="text-xs text-slate-500 font-medium">Hopia & Heritage</span>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Right Column: Interactive Quick Card / Status Box -->
-        <div class="lg:col-span-5">
-          <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-xl border border-slate-200 relative overflow-hidden">
-            <div class="flex items-center justify-between pb-4 border-b border-slate-100">
-              <div class="flex items-center gap-2">
-                <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
-                <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Serbisyo Express Desk</span>
-              </div>
-              <span class="text-xs bg-emerald-50 text-emerald-700 font-bold px-2 py-0.5 rounded-full border border-emerald-200">Bukas Ngayon</span>
-            </div>
-
-            <div class="mt-5 space-y-4">
-              <h3 class="text-base font-bold text-slate-900">
-                Piliin ang kailangang serbisyo:
-              </h3>
-
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <button class="open-request-modal text-left p-3.5 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all group" data-doc="clearance">
-                  <div class="flex items-center gap-2.5">
-                    <span class="p-2 bg-blue-100 text-blue-800 rounded-lg group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                      <i data-lucide="file-check" class="w-4 h-4"></i>
-                    </span>
-                    <div>
-                      <div class="font-bold text-xs text-slate-900">Barangay Clearance</div>
-                      <div class="text-[10px] text-slate-500">Trabaho, NBI, ID</div>
-                    </div>
-                  </div>
-                </button>
-
-                <button class="open-request-modal text-left p-3.5 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all group" data-doc="indigency">
-                  <div class="flex items-center gap-2.5">
-                    <span class="p-2 bg-emerald-100 text-emerald-800 rounded-lg group-hover:bg-emerald-600 group-hover:text-white transition-colors">
-                      <i data-lucide="heart" class="w-4 h-4"></i>
-                    </span>
-                    <div>
-                      <div class="font-bold text-xs text-slate-900">Cert. of Indigency</div>
-                      <div class="text-[10px] text-slate-500">Medikal / DSWD / Libre</div>
-                    </div>
-                  </div>
-                </button>
-
-                <button class="open-request-modal text-left p-3.5 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all group" data-doc="residency">
-                  <div class="flex items-center gap-2.5">
-                    <span class="p-2 bg-amber-100 text-amber-800 rounded-lg group-hover:bg-amber-600 group-hover:text-white transition-colors">
-                      <i data-lucide="home" class="w-4 h-4"></i>
-                    </span>
-                    <div>
-                      <div class="font-bold text-xs text-slate-900">Cert. of Residency</div>
-                      <div class="text-[10px] text-slate-500">Patunay ng Paninirahan</div>
-                    </div>
-                  </div>
-                </button>
-
-                <button class="open-request-modal text-left p-3.5 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50/50 transition-all group" data-doc="jobseeker">
-                  <div class="flex items-center gap-2.5">
-                    <span class="p-2 bg-purple-100 text-purple-800 rounded-lg group-hover:bg-purple-600 group-hover:text-white transition-colors">
-                      <i data-lucide="briefcase" class="w-4 h-4"></i>
-                    </span>
-                    <div>
-                      <div class="font-bold text-xs text-slate-900">First-Time Jobseeker</div>
-                      <div class="text-[10px] text-slate-500">RA 11261 (100% Libre)</div>
-                    </div>
-                  </div>
-                </button>
-              </div>
-
-              <!-- Location & Address Pill -->
-              <div class="pt-4 border-t border-slate-100 text-xs text-slate-600 space-y-1.5">
-                <div class="flex items-start gap-2">
-                  <i data-lucide="map-pin" class="w-4 h-4 text-red-600 shrink-0 mt-0.5"></i>
-                  <span>17 Dr. Natividad St. (via F. Manalo St.), Ibayo-Tipas, Taguig City</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <i data-lucide="mail" class="w-4 h-4 text-blue-600 shrink-0"></i>
-                  <span>teamwillyflores2023@gmail.com</span>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= ONLINE SERVICES SECTION ================= -->
-  <section id="services" class="py-16 bg-white border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="relative mx-auto max-w-6xl px-4 py-20 md:py-32 z-10">
       
-      <div class="text-center max-w-3xl mx-auto space-y-3">
-        <div class="inline-flex items-center gap-1.5 bg-blue-50 text-blue-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-          <i data-lucide="layers" class="w-3.5 h-3.5"></i>
-          <span>E-Barangay Serbisyo</span>
+      <p class="inline-flex items-center gap-2 rounded-full bg-sun px-4 py-1.5 text-sm font-semibold text-sun-foreground shadow-sm">
+        <i data-lucide="megaphone" class="size-4"></i>
+        <span>Opisyal na Website ng Barangay</span>
+      </p>
+
+      <h1 class="mt-5 max-w-2xl text-4xl font-extrabold leading-tight text-primary-foreground md:text-6xl font-heading">
+        Barangay Ibayo-Tipas
+      </h1>
+
+      <p class="mt-4 max-w-xl text-lg text-primary-foreground/90 leading-relaxed font-normal">
+        Taguig City. Sa pamumuno ni <strong>Punong Barangay Willy Flores</strong> — alamin ang mga serbisyo, anunsyo, at programa para sa bawat residente.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-3.5">
+        <button class="open-request-modal inline-flex items-center gap-2 rounded-full bg-sun px-6 py-3 text-sm font-bold text-sun-foreground transition-transform hover:scale-105 shadow-md">
+          <span>Mag-request ng Dokumento</span>
+          <i data-lucide="arrow-right" class="size-4"></i>
+        </button>
+        <a href="#services" class="inline-flex items-center gap-2 rounded-full border border-primary-foreground/40 bg-white/5 px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-white/15">
+          <span>Tingnan ang Serbisyo</span>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=100092404114029" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full border border-primary-foreground/40 px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-white/10">
+          <i data-lucide="facebook" class="size-4"></i>
+          <span>Facebook Page</span>
+        </a>
+      </div>
+
+      <!-- Quick Trust Indicators -->
+      <div class="mt-12 pt-8 border-t border-primary-foreground/15 grid grid-cols-2 sm:grid-cols-4 gap-4 text-primary-foreground">
+        <div>
+          <div class="text-2xl font-black font-heading text-sun">7,000+</div>
+          <div class="text-xs text-primary-foreground/80 font-medium">Online Followers</div>
         </div>
-        <h2 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">
-          Mga Dokumento at Serbisyong Pambarangay
-        </h2>
-        <p class="text-slate-600 text-sm sm:text-base">
-          Maaari nang magsumite ng online application upang maihanda nang maaga ang iyong mga papeles bago kunin sa Barangay Hall.
+        <div>
+          <div class="text-2xl font-black font-heading text-sun">24 / 7</div>
+          <div class="text-xs text-primary-foreground/80 font-medium">BPSO & Medical Dispatch</div>
+        </div>
+        <div>
+          <div class="text-2xl font-black font-heading text-sun">100% Free</div>
+          <div class="text-xs text-primary-foreground/80 font-medium">First-Time Jobseeker (RA 11261)</div>
+        </div>
+        <div>
+          <div class="text-2xl font-black font-heading text-sun">Tipas Hopia</div>
+          <div class="text-xs text-primary-foreground/80 font-medium">Heritage & Pride</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= ANNOUNCEMENTS SECTION (LOVABLE THEME) ================= -->
+  <section id="announcements" class="texture-grid mx-auto max-w-6xl px-4 py-16">
+    
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+      <div>
+        <p class="text-sm font-semibold uppercase tracking-widest text-primary">Mga Anunsyo</p>
+        <h2 class="mt-1 text-3xl font-bold font-heading text-foreground">Latest Announcements</h2>
+      </div>
+      <a href="https://www.facebook.com/profile.php?id=100092404114029" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline self-start sm:self-auto">
+        <span>Tingnan ang lahat sa Facebook</span>
+        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+      </a>
+    </div>
+
+    <!-- Announcement Cards Grid -->
+    <div class="mt-8 grid gap-5 md:grid-cols-3">
+      
+      <!-- Card 1: Streethoops -->
+      <article class="rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:shadow-md card-hover flex flex-col justify-between">
+        <div>
+          <time class="text-xs font-semibold uppercase tracking-wide text-primary">Latest Program</time>
+          <h3 class="mt-2 text-lg font-bold font-heading text-foreground">Salamat, Mr. Streethoops at Hoop Jeep!</h3>
+          <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
+            Taos-pusong pasasalamat kina MR. STREETHOOPS — Vontoi SanPedro at HOOP JEEP sa pagpunta at pagbibigay saya sa mga kabataan ng Nascor! Patuloy ang pagsuporta ng ating Punong Barangay Willy Flores sa ganitong mga programa at aktibidad para sa ating kabataan upang mas mabigyan natin sila ng pagkakataong mahasa ang kanilang talento at ma-enjoy ang larangan ng Sports.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-border flex items-center justify-between text-xs">
+          <span class="text-muted-foreground">Sports & Kabataan</span>
+          <a href="https://www.facebook.com/profile.php?id=100092404114029" target="_blank" class="text-primary font-bold hover:underline flex items-center gap-1">
+            <span>Facebook post</span>
+            <i data-lucide="external-link" class="w-3 h-3"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Card 2: Office Hours -->
+      <article class="rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:shadow-md card-hover flex flex-col justify-between">
+        <div>
+          <time class="text-xs font-semibold uppercase tracking-wide text-primary">Paalala</time>
+          <h3 class="mt-2 text-lg font-bold font-heading text-foreground">Oras ng Tanggapan</h3>
+          <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
+            Bukas ang Barangay Hall tuwing Lunes hanggang Biyernes, <strong>7:00 AM – 4:00 PM</strong>, sa 700 Dr. Natividad Street, Ibayo-Tipas, Taguig City. Naka-standby ang BPSO 24/7 para sa mga emergency concern.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-border flex items-center justify-between text-xs">
+          <span class="text-muted-foreground">Barangay Hall</span>
+          <span class="text-emerald-700 font-bold">Lunes – Biyernes</span>
+        </div>
+      </article>
+
+      <!-- Card 3: Contact & Hotlines -->
+      <article class="rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:shadow-md card-hover flex flex-col justify-between">
+        <div>
+          <time class="text-xs font-semibold uppercase tracking-wide text-primary">Kontak</time>
+          <h3 class="mt-2 text-lg font-bold font-heading text-foreground">Makipag-ugnayan sa Amin</h3>
+          <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
+            Para sa mga katanungan at konsernong pambarangay, tumawag sa <strong>(02) 8525-9348</strong> o <strong>0918 962 0231</strong>, o mag-email sa <strong>brgy.ibayotipas03@gmail.com</strong>.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-border flex items-center justify-between text-xs">
+          <a href="tel:09627438455" class="text-red-600 font-bold hover:underline">🚨 Medic: 0962 743 8455</a>
+          <a href="tel:09189620231" class="text-primary font-bold hover:underline">Tawagan</a>
+        </div>
+      </article>
+
+    </div>
+
+  </section>
+
+  <!-- ================= SERVICES SECTION (SERBISYO PARA SA LAHAT) ================= -->
+  <section id="services" class="bg-secondary/40 border-y border-border py-16">
+    <div class="mx-auto max-w-6xl px-4">
+      
+      <div class="text-center max-w-2xl mx-auto">
+        <p class="text-sm font-semibold uppercase tracking-widest text-primary">Serbisyo para sa Lahat</p>
+        <h2 class="mt-1 text-3xl font-bold font-heading text-foreground">Barangay Services</h2>
+        <p class="mt-2 text-sm text-muted-foreground">
+          Mag-apply ng mga dokumento online upang mabilis na maihanda ang inyong mga papeles bago kunin sa Barangay Hall.
         </p>
       </div>
 
       <!-- Services Cards Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+      <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         
-        <!-- Card 1: Barangay Clearance -->
-        <div class="card-hover bg-slate-50 border border-slate-200 rounded-2xl p-6 flex flex-col justify-between">
+        <!-- Service 1: Clearance -->
+        <div class="rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:shadow-md card-hover flex flex-col justify-between">
           <div>
-            <div class="w-12 h-12 bg-blue-100 text-blue-800 rounded-xl flex items-center justify-center mb-4">
-              <i data-lucide="file-check-2" class="w-6 h-6"></i>
+            <div class="size-11 rounded-xl bg-secondary text-primary flex items-center justify-center mb-4">
+              <i data-lucide="file-check-2" class="size-6"></i>
             </div>
-            <h3 class="text-lg font-bold text-slate-900">Barangay Clearance</h3>
-            <p class="text-xs text-slate-500 mt-1 mb-4">
-              Kailangan para sa lokal at overseas employment, postal ID, driver's license, police clearance, at iba pa.
+            <h3 class="text-lg font-bold font-heading text-foreground">Barangay Clearance</h3>
+            <p class="mt-2 text-sm text-muted-foreground leading-relaxed">
+              Request clearance for employment, business, postal ID, police clearance, or legal purposes.
             </p>
-            <div class="bg-white p-3 rounded-lg border border-slate-200 text-xs text-slate-600 space-y-1 mb-4">
-              <div class="font-bold text-slate-800">Mga Katangian:</div>
-              <div>• 1 Valid ID na may address sa Ibayo-Tipas</div>
-              <div>• Cedula (Community Tax Certificate)</div>
+            <div class="mt-4 p-3 rounded-xl bg-background border border-border text-xs text-muted-foreground space-y-1">
+              <div>• Valid ID with Ibayo-Tipas address</div>
+              <div>• Community Tax Certificate (Cedula)</div>
               <div>• Bayad: ₱50.00 (O Libre para sa First-Time Jobseeker)</div>
             </div>
           </div>
-          <button class="open-request-modal w-full bg-blue-900 hover:bg-blue-800 text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors" data-doc="clearance">
-            <span>Mag-apply Ngayon</span>
-            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          <button class="open-request-modal mt-5 w-full rounded-full bg-primary hover:bg-primary-hover text-primary-foreground font-bold py-2.5 text-xs transition-colors flex items-center justify-center gap-1.5" data-doc="clearance">
+            <span>Request Online</span>
+            <i data-lucide="arrow-right" class="size-3.5"></i>
           </button>
         </div>
 
-        <!-- Card 2: Certificate of Indigency -->
-        <div class="card-hover bg-slate-50 border border-slate-200 rounded-2xl p-6 flex flex-col justify-between">
+        <!-- Service 2: Certificate of Residency -->
+        <div class="rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:shadow-md card-hover flex flex-col justify-between">
           <div>
-            <div class="w-12 h-12 bg-emerald-100 text-emerald-800 rounded-xl flex items-center justify-center mb-4">
-              <i data-lucide="heart-handshake" class="w-6 h-6"></i>
+            <div class="size-11 rounded-xl bg-secondary text-primary flex items-center justify-center mb-4">
+              <i data-lucide="home" class="size-6"></i>
             </div>
-            <h3 class="text-lg font-bold text-slate-900">Certificate of Indigency</h3>
-            <p class="text-xs text-slate-500 mt-1 mb-4">
-              Para sa tulong-pinansyal, medical assistance sa Taguig TLC, hospital discount, PCSO, DSWD, PAO, at scholarship.
+            <h3 class="text-lg font-bold font-heading text-foreground">Certificate of Residency</h3>
+            <p class="mt-2 text-sm text-muted-foreground leading-relaxed">
+              Proof of residency for school admission, banking, utility applications, and government transactions.
             </p>
-            <div class="bg-white p-3 rounded-lg border border-slate-200 text-xs text-slate-600 space-y-1 mb-4">
-              <div class="font-bold text-slate-800">Mga Katangian:</div>
-              <div>• 1 Valid ID o Katunayan ng Paninirahan</div>
-              <div>• Patunay ng pangangailangan (Medical abstract, billing)</div>
-              <div class="text-emerald-700 font-bold">• Bayad: 100% LIBRE (Walang Bayad)</div>
-            </div>
-          </div>
-          <button class="open-request-modal w-full bg-emerald-700 hover:bg-emerald-600 text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors" data-doc="indigency">
-            <span>Mag-apply Ngayon</span>
-            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-          </button>
-        </div>
-
-        <!-- Card 3: Certificate of Residency -->
-        <div class="card-hover bg-slate-50 border border-slate-200 rounded-2xl p-6 flex flex-col justify-between">
-          <div>
-            <div class="w-12 h-12 bg-amber-100 text-amber-800 rounded-xl flex items-center justify-center mb-4">
-              <i data-lucide="home" class="w-6 h-6"></i>
-            </div>
-            <h3 class="text-lg font-bold text-slate-900">Certificate of Residency</h3>
-            <p class="text-xs text-slate-500 mt-1 mb-4">
-              Katunayan na ikaw ay lehitimong naninirahan sa Barangay Ibayo-Tipas nang hindi bababa sa anim (6) na buwan.
-            </p>
-            <div class="bg-white p-3 rounded-lg border border-slate-200 text-xs text-slate-600 space-y-1 mb-4">
-              <div class="font-bold text-slate-800">Mga Katangian:</div>
+            <div class="mt-4 p-3 rounded-xl bg-background border border-border text-xs text-muted-foreground space-y-1">
               <div>• Valid ID o Voter's Certification</div>
-              <div>• Proof of billing / Lease agreement / Certification mula sa may-ari</div>
+              <div>• Proof of billing o lease contract</div>
               <div>• Bayad: ₱30.00</div>
             </div>
           </div>
-          <button class="open-request-modal w-full bg-amber-700 hover:bg-amber-600 text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors" data-doc="residency">
-            <span>Mag-apply Ngayon</span>
-            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          <button class="open-request-modal mt-5 w-full rounded-full bg-primary hover:bg-primary-hover text-primary-foreground font-bold py-2.5 text-xs transition-colors flex items-center justify-center gap-1.5" data-doc="residency">
+            <span>Request Online</span>
+            <i data-lucide="arrow-right" class="size-3.5"></i>
           </button>
         </div>
 
-        <!-- Card 4: Barangay Business Clearance -->
-        <div class="card-hover bg-slate-50 border border-slate-200 rounded-2xl p-6 flex flex-col justify-between">
+        <!-- Service 3: Certificate of Indigency -->
+        <div class="rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:shadow-md card-hover flex flex-col justify-between">
           <div>
-            <div class="w-12 h-12 bg-indigo-100 text-indigo-800 rounded-xl flex items-center justify-center mb-4">
-              <i data-lucide="store" class="w-6 h-6"></i>
+            <div class="size-11 rounded-xl bg-secondary text-primary flex items-center justify-center mb-4">
+              <i data-lucide="heart" class="size-6"></i>
             </div>
-            <h3 class="text-lg font-bold text-slate-900">Barangay Business Clearance</h3>
-            <p class="text-xs text-slate-500 mt-1 mb-4">
-              Para sa bagong negosyo o renewal sa Taguig City (kasama ang sari-sari store, hopia bakeries, workshops, at stalls).
+            <h3 class="text-lg font-bold font-heading text-foreground">Certificate of Indigency</h3>
+            <p class="mt-2 text-sm text-muted-foreground leading-relaxed">
+              Para sa tulong-medikal sa Taguig TLC, hospital assistance, DSWD, scholarship, at Public Attorney's Office (PAO).
             </p>
-            <div class="bg-white p-3 rounded-lg border border-slate-200 text-xs text-slate-600 space-y-1 mb-4">
-              <div class="font-bold text-slate-800">Mga Katangian:</div>
-              <div>• DTI / SEC Registration</div>
-              <div>• Contract of Lease o Katibayan ng Pag-aari</div>
-              <div>• Barangay Clearance ng May-ari</div>
+            <div class="mt-4 p-3 rounded-xl bg-background border border-border text-xs text-muted-foreground space-y-1">
+              <div>• 1 Valid ID / Patunay ng Paninirahan</div>
+              <div>• Hospital bill o school requirement</div>
+              <div class="text-primary font-bold">• 100% LIBRE (Walang Bayad)</div>
             </div>
           </div>
-          <button class="open-request-modal w-full bg-indigo-800 hover:bg-indigo-700 text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors" data-doc="business">
-            <span>Mag-apply Ngayon</span>
-            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          <button class="open-request-modal mt-5 w-full rounded-full bg-primary hover:bg-primary-hover text-primary-foreground font-bold py-2.5 text-xs transition-colors flex items-center justify-center gap-1.5" data-doc="indigency">
+            <span>Request Online (Libre)</span>
+            <i data-lucide="arrow-right" class="size-3.5"></i>
           </button>
         </div>
 
-        <!-- Card 5: First-Time Jobseekers Assistance -->
-        <div class="card-hover bg-slate-50 border border-slate-200 rounded-2xl p-6 flex flex-col justify-between">
+        <!-- Service 4: Health Services -->
+        <div class="rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:shadow-md card-hover flex flex-col justify-between">
           <div>
-            <div class="w-12 h-12 bg-purple-100 text-purple-800 rounded-xl flex items-center justify-center mb-4">
-              <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+            <div class="size-11 rounded-xl bg-secondary text-primary flex items-center justify-center mb-4">
+              <i data-lucide="stethoscope" class="size-6"></i>
             </div>
-            <h3 class="text-lg font-bold text-slate-900">First-Time Jobseeker (RA 11261)</h3>
-            <p class="text-xs text-slate-500 mt-1 mb-4">
-              Libreng sertipikasyon para sa mga kabataan o fresh graduates na unang beses maghahanap ng trabaho.
+            <h3 class="text-lg font-bold font-heading text-foreground">Health Services</h3>
+            <p class="mt-2 text-sm text-muted-foreground leading-relaxed">
+              Free consultations, child immunization (EPI), dental services, prenatal care, at maintenance medicine sa health center.
             </p>
-            <div class="bg-white p-3 rounded-lg border border-slate-200 text-xs text-slate-600 space-y-1 mb-4">
-              <div class="font-bold text-slate-800">Mga Katangian:</div>
-              <div>• School ID / Diploma / Transcript</div>
-              <div>• Nilagdaang Oath of Undertaking</div>
-              <div class="text-purple-700 font-bold">• 100% LIBRENG CLEARANCES AT CERTIFICATES</div>
+            <div class="mt-4 p-3 rounded-xl bg-background border border-border text-xs text-muted-foreground space-y-1">
+              <div>• Lunes – Biyernes, 8:00 AM – 5:00 PM</div>
+              <div>• Hotline: <strong>0961 734 0886</strong></div>
+              <div>• Katabi ng Barangay Hall</div>
             </div>
           </div>
-          <button class="open-request-modal w-full bg-purple-800 hover:bg-purple-700 text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors" data-doc="jobseeker">
-            <span>Mag-apply Ngayon (Libre)</span>
-            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          <a href="#health" class="mt-5 w-full rounded-full bg-secondary hover:bg-border text-secondary-foreground font-bold py-2.5 text-xs transition-colors flex items-center justify-center gap-1.5 text-center">
+            <span>Tingnan ang Clinic Schedule</span>
+            <i data-lucide="arrow-right" class="size-3.5"></i>
+          </a>
+        </div>
+
+        <!-- Service 5: First-Time Jobseeker -->
+        <div class="rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:shadow-md card-hover flex flex-col justify-between">
+          <div>
+            <div class="size-11 rounded-xl bg-secondary text-primary flex items-center justify-center mb-4">
+              <i data-lucide="graduation-cap" class="size-6"></i>
+            </div>
+            <h3 class="text-lg font-bold font-heading text-foreground">First-Time Jobseeker (RA 11261)</h3>
+            <p class="mt-2 text-sm text-muted-foreground leading-relaxed">
+              Libreng sertipikasyon para sa mga fresh graduate o unang beses maghahanap ng trabaho upang makakuha ng libreng government clearances.
+            </p>
+            <div class="mt-4 p-3 rounded-xl bg-background border border-border text-xs text-muted-foreground space-y-1">
+              <div>• School ID / Diploma / TOR</div>
+              <div>• Signed Oath of Undertaking</div>
+              <div class="text-primary font-bold">• 100% LIBRENG SERTIPIKASYON</div>
+            </div>
+          </div>
+          <button class="open-request-modal mt-5 w-full rounded-full bg-primary hover:bg-primary-hover text-primary-foreground font-bold py-2.5 text-xs transition-colors flex items-center justify-center gap-1.5" data-doc="jobseeker">
+            <span>Request Online (Libre)</span>
+            <i data-lucide="arrow-right" class="size-3.5"></i>
           </button>
         </div>
 
-        <!-- Card 6: Lupon Tagapamayapa (Katarungang Pambarangay) -->
-        <div class="card-hover bg-slate-50 border border-slate-200 rounded-2xl p-6 flex flex-col justify-between">
+        <!-- Service 6: Waste Collection & Kalinisan -->
+        <div class="rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:shadow-md card-hover flex flex-col justify-between">
           <div>
-            <div class="w-12 h-12 bg-rose-100 text-rose-800 rounded-xl flex items-center justify-center mb-4">
-              <i data-lucide="scale" class="w-6 h-6"></i>
+            <div class="size-11 rounded-xl bg-secondary text-primary flex items-center justify-center mb-4">
+              <i data-lucide="trash-2" class="size-6"></i>
             </div>
-            <h3 class="text-lg font-bold text-slate-900">Lupon Tagapamayapa</h3>
-            <p class="text-xs text-slate-500 mt-1 mb-4">
-              Mapayapang pag-aayos ng mga alitan at reklamo sa pagitan ng mga magkakapitbahay alinsunod sa batas.
+            <h3 class="text-lg font-bold font-heading text-foreground">Waste Collection & Sanitation</h3>
+            <p class="mt-2 text-sm text-muted-foreground leading-relaxed">
+              Regular garbage collection, anti-dengue misting, at Oplan Linis Estero across all purok areas in Ibayo-Tipas.
             </p>
-            <div class="bg-white p-3 rounded-lg border border-slate-200 text-xs text-slate-600 space-y-1 mb-4">
-              <div class="font-bold text-slate-800">Proseso:</div>
-              <div>• Pormal na pagsusumite ng reklamo sa Lupon Desk</div>
-              <div>• Pagpapatawag ng Amicable Conciliation / Mediation</div>
-              <div>• Certificate to File Action kung hindi magkasundo</div>
+            <div class="mt-4 p-3 rounded-xl bg-background border border-border text-xs text-muted-foreground space-y-1">
+              <div>• Regular schedule bawat purok</div>
+              <div>• Huwag magtapon ng basura sa ilog</div>
+              <div>• I-report ang baradong kanal sa e-Reklamo</div>
             </div>
           </div>
-          <a href="#reklamo" class="w-full bg-slate-800 hover:bg-slate-700 text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 transition-colors text-center">
-            <span>Pumunta sa Reklamo Desk</span>
-            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          <a href="#reklamo" class="mt-5 w-full rounded-full bg-secondary hover:bg-border text-secondary-foreground font-bold py-2.5 text-xs transition-colors flex items-center justify-center gap-1.5 text-center">
+            <span>Mag-ulat ng Konserno sa Kalinisan</span>
+            <i data-lucide="arrow-right" class="size-3.5"></i>
           </a>
         </div>
 
@@ -494,328 +461,167 @@
   </section>
 
   <!-- ================= DOCUMENT TRACKER SECTION ================= -->
-  <section id="tracker" class="py-16 bg-gradient-to-b from-slate-50 to-blue-50/40 border-b border-slate-200">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center space-y-3 mb-8">
-        <div class="inline-flex items-center gap-1.5 bg-blue-100 text-blue-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-          <i data-lucide="search" class="w-3.5 h-3.5"></i>
-          <span>Live Verification & Status</span>
+  <section id="tracker" class="texture-grid mx-auto max-w-4xl px-4 py-16">
+    <div class="text-center space-y-2 mb-8">
+      <p class="text-sm font-semibold uppercase tracking-widest text-primary">Live Verification & Status</p>
+      <h2 class="text-3xl font-bold font-heading text-foreground">Subaybayan ang Iyong Dokumento</h2>
+      <p class="text-sm text-muted-foreground max-w-xl mx-auto">
+        Ilagay ang iyong Tracking Code (hal. <code class="font-mono bg-white px-2 py-0.5 rounded border border-border text-primary font-bold">BIT-2026-XXXXX</code>) o mobile number upang malaman kung handa na itong kunin sa Barangay Hall.
+      </p>
+    </div>
+
+    <div class="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-sm">
+      <form id="tracker-form" class="flex flex-col sm:flex-row gap-3">
+        <div class="relative flex-1">
+          <i data-lucide="ticket" class="w-5 h-5 absolute left-3.5 top-3.5 text-muted-foreground"></i>
+          <input 
+            type="text" 
+            id="tracker-input" 
+            required 
+            placeholder="Ilagay ang Tracking Reference # (hal. BIT-2026-10482)" 
+            class="w-full pl-11 pr-4 py-3 bg-background border border-border rounded-xl text-sm font-semibold text-foreground focus:bg-white focus:ring-2 focus:ring-primary focus:outline-none tracking-wide"
+          >
         </div>
-        <h2 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">
-          Subaybayan ang Iyong Dokumento
-        </h2>
-        <p class="text-slate-600 text-sm max-w-xl mx-auto">
-          Ilagay ang iyong Tracking Code (hal. <code class="font-mono bg-white px-1.5 py-0.5 rounded border border-slate-200 text-blue-900 font-bold">BIT-2026-XXXXX</code>) o mobile number upang malaman kung handa na itong kunin sa Barangay Hall.
-        </p>
+        <button type="submit" class="rounded-full bg-primary hover:bg-primary-hover text-primary-foreground font-bold px-7 py-3 text-sm shadow-sm transition-all flex items-center justify-center gap-2">
+          <i data-lucide="search" class="w-4 h-4"></i>
+          <span>Suriin ang Katayuan</span>
+        </button>
+      </form>
+
+      <!-- Sample Codes -->
+      <div class="mt-4 pt-3 border-t border-border flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+        <span>Subukan ang mga sample code:</span>
+        <button type="button" onclick="document.getElementById('tracker-input').value='BIT-2026-10482'; document.getElementById('tracker-form').dispatchEvent(new Event('submit'))" class="font-mono font-bold bg-secondary hover:bg-border text-secondary-foreground px-2.5 py-1 rounded-full transition-colors">
+          BIT-2026-10482 (Ready for Pickup)
+        </button>
+        <button type="button" onclick="document.getElementById('tracker-input').value='BIT-2026-92817'; document.getElementById('tracker-form').dispatchEvent(new Event('submit'))" class="font-mono font-bold bg-secondary hover:bg-border text-secondary-foreground px-2.5 py-1 rounded-full transition-colors">
+          BIT-2026-92817 (For Signature)
+        </button>
       </div>
 
-      <!-- Tracker Search Box -->
-      <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-slate-200">
-        <form id="tracker-form" class="flex flex-col sm:flex-row gap-3">
-          <div class="relative flex-1">
-            <i data-lucide="ticket" class="w-5 h-5 absolute left-3.5 top-3.5 text-slate-400"></i>
-            <input 
-              type="text" 
-              id="tracker-input" 
-              required 
-              placeholder="Ilagay ang Tracking Reference # (hal. BIT-2026-10482)" 
-              class="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-semibold text-slate-900 focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none tracking-wide"
-            >
-          </div>
-          <button type="submit" class="bg-blue-900 hover:bg-blue-800 text-white font-bold px-6 py-3 rounded-xl text-sm shadow-md transition-all flex items-center justify-center gap-2">
-            <i data-lucide="search" class="w-4 h-4"></i>
-            <span>Suriin ang Katayuan</span>
-          </button>
-        </form>
-
-        <!-- Quick Demo Codes for Testing -->
-        <div class="mt-4 pt-3 border-t border-slate-100 flex flex-wrap items-center gap-2 text-xs text-slate-500">
-          <span>Subukan ang mga sample code:</span>
-          <button type="button" onclick="document.getElementById('tracker-input').value='BIT-2026-10482'; document.getElementById('tracker-form').dispatchEvent(new Event('submit'))" class="font-mono font-bold bg-emerald-50 hover:bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded border border-emerald-200 transition-colors">
-            BIT-2026-10482 (Ready for Pickup)
-          </button>
-          <button type="button" onclick="document.getElementById('tracker-input').value='BIT-2026-92817'; document.getElementById('tracker-form').dispatchEvent(new Event('submit'))" class="font-mono font-bold bg-blue-50 hover:bg-blue-100 text-blue-800 px-2 py-0.5 rounded border border-blue-200 transition-colors">
-            BIT-2026-92817 (Processing)
-          </button>
-        </div>
-
-        <!-- Tracking Result Card (Initially Hidden) -->
-        <div id="tracker-result-box" class="hidden mt-6 pt-6 border-t border-slate-200 space-y-6">
-          
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-50 p-4 rounded-xl border border-slate-200">
-            <div>
-              <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Tracking Reference Code</div>
-              <div id="track-res-code" class="text-xl font-black text-blue-950 font-mono">-</div>
-            </div>
-            <div>
-              <span id="track-res-status-badge" class="px-3 py-1 rounded-full text-xs font-black uppercase bg-blue-100 text-blue-800">
-                -
-              </span>
-            </div>
-          </div>
-
-          <!-- 4-Step Visual Progress Stepper -->
-          <div class="grid grid-cols-4 gap-2 relative">
-            <div id="track-step-1" class="flex flex-col items-center text-center">
-              <div class="step-circle w-8 h-8 rounded-full border-2 border-emerald-500 bg-emerald-500 text-white font-bold text-xs flex items-center justify-center shadow-md">1</div>
-              <span class="step-label text-[11px] text-emerald-700 mt-1 font-bold">Natanggap</span>
-            </div>
-            <div id="track-step-2" class="flex flex-col items-center text-center">
-              <div class="step-circle w-8 h-8 rounded-full border-2 border-slate-300 bg-white text-slate-400 font-bold text-xs flex items-center justify-center">2</div>
-              <span class="step-label text-[11px] text-slate-400 mt-1 font-medium">Pagsusuri</span>
-            </div>
-            <div id="track-step-3" class="flex flex-col items-center text-center">
-              <div class="step-circle w-8 h-8 rounded-full border-2 border-slate-300 bg-white text-slate-400 font-bold text-xs flex items-center justify-center">3</div>
-              <span class="step-label text-[11px] text-slate-400 mt-1 font-medium">Nilalagdaan</span>
-            </div>
-            <div id="track-step-4" class="flex flex-col items-center text-center">
-              <div class="step-circle w-8 h-8 rounded-full border-2 border-slate-300 bg-white text-slate-400 font-bold text-xs flex items-center justify-center">4</div>
-              <span class="step-label text-[11px] text-slate-400 mt-1 font-medium">Handa nang Kunin</span>
-            </div>
-          </div>
-
-          <!-- Application Details Grid -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs bg-white p-4 rounded-xl border border-slate-200">
-            <div>
-              <span class="text-slate-500">Pangalan ng Aplikante:</span>
-              <div id="track-res-name" class="font-bold text-slate-900 text-sm mt-0.5">-</div>
-            </div>
-            <div>
-              <span class="text-slate-500">Dokumentong Hinihiling:</span>
-              <div id="track-res-doc" class="font-bold text-slate-900 text-sm mt-0.5">-</div>
-            </div>
-            <div class="sm:col-span-2 pt-2 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-              <div>
-                <span class="text-slate-500">Iskedyul ng Pag-claim:</span>
-                <div id="track-res-pickup" class="font-bold text-blue-900 mt-0.5">-</div>
-              </div>
-              <div class="text-[11px] text-slate-500">
-                Lokasyon: 17 Dr. Natividad St., Ibayo-Tipas
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Not Found Notice (Initially Hidden) -->
-        <div id="tracker-not-found-box" class="hidden mt-6 p-4 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900 flex items-start gap-3">
-          <i data-lucide="alert-circle" class="w-5 h-5 text-amber-600 shrink-0 mt-0.5"></i>
+      <!-- Tracking Result Card -->
+      <div id="tracker-result-box" class="hidden mt-6 pt-6 border-t border-border space-y-6">
+        
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-secondary/50 p-4 rounded-xl border border-border">
           <div>
-            <div class="font-bold">Walang natagpuang aplikasyon para sa code na ito.</div>
-            <p class="mt-1 text-amber-800">
-              Pakitiyak na tama ang pagkakatype ng Tracking Reference Code (hal. <span class="font-mono font-bold">BIT-2026-XXXXX</span>). Kung bago lamang ang iyong pagsusumite, maaari ring tumawag sa Barangay Hall Hotline: <strong>0918 962 0231</strong>.
-            </p>
+            <div class="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">Tracking Reference Code</div>
+            <div id="track-res-code" class="text-xl font-black text-foreground font-mono">-</div>
+          </div>
+          <div>
+            <span id="track-res-status-badge" class="px-3.5 py-1 rounded-full text-xs font-black uppercase bg-primary text-primary-foreground">
+              -
+            </span>
           </div>
         </div>
 
+        <!-- Progress Stepper -->
+        <div class="grid grid-cols-4 gap-2 relative">
+          <div id="track-step-1" class="flex flex-col items-center text-center">
+            <div class="step-circle w-8 h-8 rounded-full border-2 border-primary bg-primary text-primary-foreground font-bold text-xs flex items-center justify-center shadow-sm">1</div>
+            <span class="step-label text-[11px] text-primary mt-1 font-bold">Natanggap</span>
+          </div>
+          <div id="track-step-2" class="flex flex-col items-center text-center">
+            <div class="step-circle w-8 h-8 rounded-full border-2 border-border bg-white text-muted-foreground font-bold text-xs flex items-center justify-center">2</div>
+            <span class="step-label text-[11px] text-muted-foreground mt-1 font-medium">Pagsusuri</span>
+          </div>
+          <div id="track-step-3" class="flex flex-col items-center text-center">
+            <div class="step-circle w-8 h-8 rounded-full border-2 border-border bg-white text-muted-foreground font-bold text-xs flex items-center justify-center">3</div>
+            <span class="step-label text-[11px] text-muted-foreground mt-1 font-medium">Nilalagdaan</span>
+          </div>
+          <div id="track-step-4" class="flex flex-col items-center text-center">
+            <div class="step-circle w-8 h-8 rounded-full border-2 border-border bg-white text-muted-foreground font-bold text-xs flex items-center justify-center">4</div>
+            <span class="step-label text-[11px] text-muted-foreground mt-1 font-medium">Handa nang Kunin</span>
+          </div>
+        </div>
+
+        <!-- Details -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs bg-white p-4 rounded-xl border border-border">
+          <div>
+            <span class="text-muted-foreground">Pangalan ng Aplikante:</span>
+            <div id="track-res-name" class="font-bold text-foreground text-sm mt-0.5">-</div>
+          </div>
+          <div>
+            <span class="text-muted-foreground">Dokumentong Hinihiling:</span>
+            <div id="track-res-doc" class="font-bold text-foreground text-sm mt-0.5">-</div>
+          </div>
+          <div class="sm:col-span-2 pt-2 border-t border-border flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+            <div>
+              <span class="text-muted-foreground">Iskedyul ng Pag-claim:</span>
+              <div id="track-res-pickup" class="font-bold text-primary mt-0.5">-</div>
+            </div>
+            <div class="text-[11px] text-muted-foreground">
+              Lokasyon: 700 Dr. Natividad St., Ibayo-Tipas
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Not Found Box -->
+      <div id="tracker-not-found-box" class="hidden mt-6 p-4 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900 flex items-start gap-3">
+        <i data-lucide="alert-circle" class="w-5 h-5 text-amber-600 shrink-0 mt-0.5"></i>
+        <div>
+          <div class="font-bold">Walang natagpuang aplikasyon para sa code na ito.</div>
+          <p class="mt-1 text-amber-800">
+            Pakitiyak na tama ang pagkakatype ng Tracking Reference Code (hal. <span class="font-mono font-bold">BIT-2026-XXXXX</span>) o tumawag sa Barangay Hall Hotline: <strong>0918 962 0231</strong>.
+          </p>
+        </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ================= ANNOUNCEMENTS & BULLETIN BOARD ================= -->
-  <section id="announcements" class="py-16 bg-slate-100 border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- ================= ABOUT & LEADERSHIP SECTION ================= -->
+  <section id="about" class="bg-card border-t border-border py-16">
+    <div class="mx-auto max-w-6xl px-4">
       
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
-        <div>
-          <div class="inline-flex items-center gap-1.5 bg-blue-100 text-blue-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2">
-            <i data-lucide="megaphone" class="w-3.5 h-3.5"></i>
-            <span>Balita at Anunsyo</span>
-          </div>
-          <h2 class="text-3xl font-extrabold text-slate-900">
-            Pinakabagong Update sa Barangay Ibayo-Tipas
-          </h2>
-          <p class="text-slate-600 text-sm mt-1">
-            Galing sa opisyal na Facebook page: <a href="https://www.facebook.com/profile.php?id=100092404114029" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline font-semibold">facebook.com/profile.php?id=100092404114029</a>
-          </p>
-        </div>
-
-        <a href="https://www.facebook.com/profile.php?id=100092404114029" target="_blank" rel="noopener noreferrer" class="self-start md:self-auto bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-2 shadow-sm transition-colors">
-          <i data-lucide="facebook" class="w-4 h-4"></i>
-          <span>Bisitahin ang Facebook Page</span>
-        </a>
-      </div>
-
-      <!-- Filter Controls & Search -->
-      <div class="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto">
-          <button class="announcement-filter-btn active bg-blue-900 text-white px-3.5 py-1.5 rounded-lg text-xs font-bold transition-colors" data-category="all">
-            Lahat
-          </button>
-          <button class="announcement-filter-btn bg-white text-slate-700 border border-slate-200 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-colors" data-category="advisory">
-            Advisories & Tubig
-          </button>
-          <button class="announcement-filter-btn bg-white text-slate-700 border border-slate-200 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-colors" data-category="health">
-            Health & Medikal
-          </button>
-          <button class="announcement-filter-btn bg-white text-slate-700 border border-slate-200 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-colors" data-category="youth">
-            Kabataan / SK
-          </button>
-          <button class="announcement-filter-btn bg-white text-slate-700 border border-slate-200 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-colors" data-category="services">
-            Social Services
-          </button>
-        </div>
-
-        <div class="relative w-full sm:w-64">
-          <i data-lucide="search" class="w-4 h-4 absolute left-3 top-2.5 text-slate-400"></i>
-          <input type="text" id="announcement-search" placeholder="Maghanap ng anunsyo..." class="w-full bg-white border border-slate-200 rounded-lg pl-9 pr-3 py-1.5 text-xs focus:ring-2 focus:ring-blue-600 focus:outline-none">
-        </div>
-      </div>
-
-      <!-- Announcements Cards Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
         
-        <!-- Post 1: Manila Water Advisory -->
-        <article class="announcement-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between" data-category="advisory">
-          <div class="p-6">
-            <div class="flex items-center justify-between gap-2 mb-3">
-              <span class="bg-amber-100 text-amber-800 text-[11px] font-extrabold px-2.5 py-0.5 rounded-full">
-                PUBLIC ADVISORY
-              </span>
-              <span class="text-[11px] text-slate-400 font-medium">Kamakailan</span>
+        <div class="lg:col-span-7 space-y-4">
+          <p class="text-sm font-semibold uppercase tracking-widest text-primary">Tungkol sa Barangay</p>
+          <h2 class="text-3xl font-bold font-heading text-foreground sm:text-4xl">
+            Tapat at Maaasahang Pamumuno para sa Ibayo-Tipas
+          </h2>
+          <p class="text-sm leading-relaxed text-muted-foreground">
+            Sa pamumuno ni <strong>Punong Barangay Willy Flores</strong> kasama ang Sangguniang Barangay at Sangguniang Kabataan, patuloy ang ating layunin na magtaguyod ng isang malinis, ligtas, at maunlad na pamayanan kung saan ang bawat residente ay nabibigyan ng agarang tulong at serbisyong totoo.
+          </p>
+          <div class="grid grid-cols-2 gap-4 pt-2">
+            <div class="p-4 rounded-xl bg-secondary/60 border border-border">
+              <h4 class="font-bold text-sm text-foreground font-heading">Kasaysayan at Kultura</h4>
+              <p class="text-xs text-muted-foreground mt-1">
+                Tahanan ng orihinal at masarap na <strong>Tipas Hopia</strong> at mayamang tradisyon sa tabing-ilog ng Taguig.
+              </p>
             </div>
-            <h4 class="text-base font-bold text-slate-900 leading-snug">
-              Manila Water Scheduled Service Maintenance & Water Interruption
-            </h4>
-            <p class="text-xs text-slate-600 mt-2 line-clamp-3">
-              Ipinababatid sa lahat ng mga residente ng Barangay Ibayo-Tipas ang pansamantalang pagkaantala ng suplay ng tubig dahil sa mainline pipe interconnection at leak repair sa bahagi ng F. Manalo St. at Dr. Natividad St. Mangyaring mag-ipon ng sapat na tubig.
-            </p>
+            <div class="p-4 rounded-xl bg-secondary/60 border border-border">
+              <h4 class="font-bold text-sm text-foreground font-heading">Tuloy ang Serbisyo</h4>
+              <p class="text-xs text-muted-foreground mt-1">
+                Aktibong pakikipag-ugnayan sa Taguig City Government at libreng serbisyong medikal para sa bawat Tipaseno.
+              </p>
+            </div>
           </div>
-          <div class="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs">
-            <span class="text-slate-500 font-medium">BPSO Water Dispatch Standby</span>
-            <a href="https://www.facebook.com/profile.php?id=100092404114029" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-bold hover:underline flex items-center gap-1">
-              <span>Bukas sa FB</span>
-              <i data-lucide="external-link" class="w-3 h-3"></i>
-            </a>
-          </div>
-        </article>
+        </div>
 
-        <!-- Post 2: Medical Mission -->
-        <article class="announcement-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between" data-category="health">
-          <div class="p-6">
-            <div class="flex items-center justify-between gap-2 mb-3">
-              <span class="bg-emerald-100 text-emerald-800 text-[11px] font-extrabold px-2.5 py-0.5 rounded-full">
-                HEALTH & MEDICAL
-              </span>
-              <span class="text-[11px] text-slate-400 font-medium">Bukas na Sabado</span>
+        <div class="lg:col-span-5">
+          <div class="rounded-2xl border border-border bg-background p-6 space-y-4">
+            <div class="flex items-center gap-4">
+              <div class="size-16 rounded-2xl bg-leaf text-white flex items-center justify-center text-2xl font-black font-heading shadow-md">
+                PB
+              </div>
+              <div>
+                <div class="text-xs font-semibold text-primary uppercase tracking-wide">Punong Barangay</div>
+                <div class="text-lg font-black font-heading text-foreground">Hon. Willy Flores</div>
+                <div class="text-xs text-muted-foreground">Team Willy Flores</div>
+              </div>
             </div>
-            <h4 class="text-base font-bold text-slate-900 leading-snug">
-              Libreng Checkup, Dental, at Pamimigay ng Maintenance na Gamot
-            </h4>
-            <p class="text-xs text-slate-600 mt-2 line-clamp-3">
-              Magkakaroon ng libreng konsultasyon, bunot ng ngipin, at pamamahagi ng bitamina at gamot para sa high blood at diabetes sa Ibayo-Tipas Health Center sa pamumuno ng Team Willy Flores katuwang ang Taguig City Health Office.
-            </p>
-          </div>
-          <div class="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs">
-            <span class="text-slate-500 font-medium">8:00 AM - 12:00 NN @ Health Center</span>
-            <a href="https://www.facebook.com/profile.php?id=100092404114029" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-bold hover:underline flex items-center gap-1">
-              <span>Bukas sa FB</span>
-              <i data-lucide="external-link" class="w-3 h-3"></i>
-            </a>
-          </div>
-        </article>
-
-        <!-- Post 3: Senior Citizen Cash Gift -->
-        <article class="announcement-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between" data-category="services">
-          <div class="p-6">
-            <div class="flex items-center justify-between gap-2 mb-3">
-              <span class="bg-blue-100 text-blue-800 text-[11px] font-extrabold px-2.5 py-0.5 rounded-full">
-                SENIOR CITIZENS
-              </span>
-              <span class="text-[11px] text-slate-400 font-medium">Opisyal</span>
+            <blockquote class="text-xs italic text-muted-foreground border-l-2 border-primary pl-3 py-1">
+              "Ang serbisyo sa mamamayan ay hindi natatapos sa loob ng tanggapan. Hangad natin ang agarang aksyon, katahimikan, at kalusugan ng bawat pamilya sa Ibayo-Tipas."
+            </blockquote>
+            <div class="pt-2 border-t border-border flex items-center justify-between text-xs text-muted-foreground">
+              <span>Barangay Hall Desk</span>
+              <a href="tel:09189620231" class="font-bold text-primary hover:underline">0918 962 0231</a>
             </div>
-            <h4 class="text-base font-bold text-slate-900 leading-snug">
-              Pamamahagi ng Taguig TLC Birthday Cash Gift para sa mga Senior Citizens
-            </h4>
-            <p class="text-xs text-slate-600 mt-2 line-clamp-3">
-              Pinaaalalahanan ang ating mga minamahal na lolot lola sa Ibayo-Tipas na may kaarawan para sa buwang ito na maghanda ng kanilang Senior Citizen OSCA ID para sa door-to-door distribution o pickup sa Barangay Covered Court.
-            </p>
           </div>
-          <div class="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs">
-            <span class="text-slate-500 font-medium">Dalhin ang OSCA ID</span>
-            <a href="https://www.facebook.com/profile.php?id=100092404114029" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-bold hover:underline flex items-center gap-1">
-              <span>Bukas sa FB</span>
-              <i data-lucide="external-link" class="w-3 h-3"></i>
-            </a>
-          </div>
-        </article>
-
-        <!-- Post 4: SK Youth Sports & Clinic -->
-        <article class="announcement-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between" data-category="youth">
-          <div class="p-6">
-            <div class="flex items-center justify-between gap-2 mb-3">
-              <span class="bg-purple-100 text-purple-800 text-[11px] font-extrabold px-2.5 py-0.5 rounded-full">
-                SK IBAYO-TIPAS
-              </span>
-              <span class="text-[11px] text-slate-400 font-medium">Kabataan Program</span>
-            </div>
-            <h4 class="text-base font-bold text-slate-900 leading-snug">
-              Purok Basketball & Volleyball League kasama ang Libreng School Supplies Drive
-            </h4>
-            <p class="text-xs text-slate-600 mt-2 line-clamp-3">
-              Inaanyayahan ang lahat ng mga kabataan ng Ibayo-Tipas na magparehistro para sa taunang palaro at sports clinic. Mayroon ding distribusyon ng school kits para sa mga mag-aaral sa elementarya at high school.
-            </p>
-          </div>
-          <div class="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs">
-            <span class="text-slate-500 font-medium">SK Chairman & Council</span>
-            <a href="https://www.facebook.com/profile.php?id=100092404114029" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-bold hover:underline flex items-center gap-1">
-              <span>Bukas sa FB</span>
-              <i data-lucide="external-link" class="w-3 h-3"></i>
-            </a>
-          </div>
-        </article>
-
-        <!-- Post 5: Anti-Dengue Misting -->
-        <article class="announcement-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between" data-category="health">
-          <div class="p-6">
-            <div class="flex items-center justify-between gap-2 mb-3">
-              <span class="bg-rose-100 text-rose-800 text-[11px] font-extrabold px-2.5 py-0.5 rounded-full">
-                KALINISAN AT KALUSUGAN
-              </span>
-              <span class="text-[11px] text-slate-400 font-medium">BDRRMC Advisory</span>
-            </div>
-            <h4 class="text-base font-bold text-slate-900 leading-snug">
-              Barangay-wide Anti-Dengue Misting at Oplan Taob sa mga Purok
-            </h4>
-            <p class="text-xs text-slate-600 mt-2 line-clamp-3">
-              Upang mapanatiling ligtas sa dengue ang ating mga kabahayan, magsasagawa ang BDRRMC at sanitation crew ng misting operation at paglilinis ng mga kanal at estero. Makipagtulungan sa pamamagitan ng pagtapon ng mga naipong tubig.
-            </p>
-          </div>
-          <div class="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs">
-            <span class="text-slate-500 font-medium">Bawat Purok sa Ibayo-Tipas</span>
-            <a href="https://www.facebook.com/profile.php?id=100092404114029" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-bold hover:underline flex items-center gap-1">
-              <span>Bukas sa FB</span>
-              <i data-lucide="external-link" class="w-3 h-3"></i>
-            </a>
-          </div>
-        </article>
-
-        <!-- Post 6: Typhoon & Calamity Readiness -->
-        <article class="announcement-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between" data-category="advisory">
-          <div class="p-6">
-            <div class="flex items-center justify-between gap-2 mb-3">
-              <span class="bg-sky-100 text-sky-800 text-[11px] font-extrabold px-2.5 py-0.5 rounded-full">
-                DISASTER RESILIENCE
-              </span>
-              <span class="text-[11px] text-slate-400 font-medium">Standby 24/7</span>
-            </div>
-            <h4 class="text-base font-bold text-slate-900 leading-snug">
-              Paghahanda sa Bagyo at Tag-ulan: Rescue Boats at Evacuation Centers Handa
-            </h4>
-            <p class="text-xs text-slate-600 mt-2 line-clamp-3">
-              Nakaantabay ang Barangay Rescue Team, ambulansya, at rubber boats para sa posibleng pagtaas ng tubig sa tabing-ilog. Sa oras ng pangangailangan, tumawag agad sa hotline 0962 743 8455.
-            </p>
-          </div>
-          <div class="px-6 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs">
-            <span class="text-slate-500 font-medium">Evacuation Center: Tipas Elem / Court</span>
-            <a href="https://www.facebook.com/profile.php?id=100092404114029" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-bold hover:underline flex items-center gap-1">
-              <span>Bukas sa FB</span>
-              <i data-lucide="external-link" class="w-3 h-3"></i>
-            </a>
-          </div>
-        </article>
+        </div>
 
       </div>
 
@@ -823,509 +629,223 @@
   </section>
 
   <!-- ================= BARANGAY HEALTH CENTER SECTION ================= -->
-  <section id="health" class="py-16 bg-white border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section id="health" class="bg-secondary/30 border-t border-border py-16">
+    <div class="mx-auto max-w-6xl px-4">
       
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        
-        <div class="lg:col-span-5 space-y-4">
-          <div class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-            <i data-lucide="stethoscope" class="w-3.5 h-3.5"></i>
-            <span>Sentro ng Kalusugan</span>
-          </div>
-          <h2 class="text-3xl font-extrabold text-slate-900">
-            Barangay Ibayo-Tipas Health Center
-          </h2>
-          <p class="text-slate-600 text-sm leading-relaxed">
-            Ang sentro ng kalusugan ng Ibayo-Tipas ay bukas upang maghatid ng de-kalidad at libreng serbisyong medikal sa bawat pamilya. Katuwang natin ang Taguig City Health Office sa pagbibigay ng libreng gamot, bakuna, at konsultasyon.
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-widest text-primary">Sentro ng Kalusugan</p>
+          <h2 class="mt-1 text-3xl font-bold font-heading text-foreground">Barangay Health Center</h2>
+          <p class="text-sm text-muted-foreground mt-1">
+            Bukas tuwing Lunes hanggang Biyernes, 8:00 AM – 5:00 PM • Katabi ng Barangay Hall
           </p>
-
-          <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4 space-y-2">
-            <div class="flex items-center gap-2 text-emerald-900 font-bold text-sm">
-              <i data-lucide="phone-forwarded" class="w-4 h-4"></i>
-              <span>Direktang Hotline ng Health Center:</span>
-            </div>
-            <div class="flex items-center justify-between">
-              <span class="text-xl font-black text-emerald-700">0961 734 0886</span>
-              <a href="tel:09617340886" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition-colors">
-                Tawagan
-              </a>
-            </div>
-          </div>
-
-          <div class="text-xs text-slate-500 space-y-1">
-            <div class="flex items-center gap-2">
-              <i data-lucide="clock" class="w-4 h-4 text-slate-400"></i>
-              <span>Oras ng Konsultasyon: 8:00 AM hanggang 5:00 PM (Lunes hanggang Biyernes)</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <i data-lucide="map-pin" class="w-4 h-4 text-slate-400"></i>
-              <span>Lokasyon: Katabi ng Barangay Hall, 17 Dr. Natividad St., Ibayo-Tipas</span>
-            </div>
-          </div>
         </div>
+        <a href="tel:09617340886" class="inline-flex items-center gap-2 rounded-full bg-primary hover:bg-primary-hover text-primary-foreground font-bold px-5 py-2.5 text-xs shadow-sm self-start md:self-auto transition-colors">
+          <i data-lucide="phone-call" class="size-3.5"></i>
+          <span>Tawagan ang Health Center: 0961 734 0886</span>
+        </a>
+      </div>
 
-        <!-- Right Side: Weekly Clinic Schedule Table -->
-        <div class="lg:col-span-7">
-          <div class="bg-slate-50 rounded-2xl border border-slate-200 p-6 shadow-sm">
-            <h3 class="text-base font-bold text-slate-900 mb-4 flex items-center gap-2">
-              <i data-lucide="calendar" class="w-5 h-5 text-blue-900"></i>
-              <span>Lingguhang Iskedyul ng mga Serbisyong Medikal</span>
-            </h3>
-
-            <div class="divide-y divide-slate-200">
-              
-              <div class="py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                <div>
-                  <span class="text-xs font-extrabold text-blue-900 uppercase tracking-wide">LUNES</span>
-                  <div class="text-sm font-bold text-slate-800">Prenatal & Maternal Health Clinic</div>
-                  <div class="text-xs text-slate-500">Check-up para sa mga nagdadalantao, ultrasound referral, folic acid</div>
-                </div>
-                <span class="text-xs font-semibold text-emerald-700 bg-emerald-100 px-2 py-1 rounded-md self-start sm:self-auto">8:00 AM - 12:00 NN</span>
-              </div>
-
-              <div class="py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                <div>
-                  <span class="text-xs font-extrabold text-blue-900 uppercase tracking-wide">MARTES</span>
-                  <div class="text-sm font-bold text-slate-800">EPI Immunization (Bakuna ng Sanggol)</div>
-                  <div class="text-xs text-slate-500">BCG, Pentavalent, Polio, Measles, at pagtimbang ng bata</div>
-                </div>
-                <span class="text-xs font-semibold text-emerald-700 bg-emerald-100 px-2 py-1 rounded-md self-start sm:self-auto">8:00 AM - 3:00 PM</span>
-              </div>
-
-              <div class="py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                <div>
-                  <span class="text-xs font-extrabold text-blue-900 uppercase tracking-wide">MIYERKULES</span>
-                  <div class="text-sm font-bold text-slate-800">Senior Citizens & Non-Communicable Diseases</div>
-                  <div class="text-xs text-slate-500">Blood pressure monitoring, Blood sugar check, libreng maintenance</div>
-                </div>
-                <span class="text-xs font-semibold text-emerald-700 bg-emerald-100 px-2 py-1 rounded-md self-start sm:self-auto">8:00 AM - 4:00 PM</span>
-              </div>
-
-              <div class="py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                <div>
-                  <span class="text-xs font-extrabold text-blue-900 uppercase tracking-wide">HUWEBES</span>
-                  <div class="text-sm font-bold text-slate-800">Dental Health & Oral Hygiene Services</div>
-                  <div class="text-xs text-slate-500">Libreng bunot ng ngipin, fluoride application, at oral consultation</div>
-                </div>
-                <span class="text-xs font-semibold text-emerald-700 bg-emerald-100 px-2 py-1 rounded-md self-start sm:self-auto">8:30 AM - 12:00 NN</span>
-              </div>
-
-              <div class="py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                <div>
-                  <span class="text-xs font-extrabold text-blue-900 uppercase tracking-wide">BIYERNES</span>
-                  <div class="text-sm font-bold text-slate-800">TB-DOTS Clinic & Pangkalahatang Konsultasyon</div>
-                  <div class="text-xs text-slate-500">Tuberculosis treatment monitoring, general illnesses, at reseta</div>
-                </div>
-                <span class="text-xs font-semibold text-emerald-700 bg-emerald-100 px-2 py-1 rounded-md self-start sm:self-auto">8:00 AM - 5:00 PM</span>
-              </div>
-
-            </div>
-
-          </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+        <div class="bg-card p-4 rounded-xl border border-border">
+          <div class="text-xs font-bold text-primary uppercase">Lunes</div>
+          <div class="font-bold text-sm text-foreground mt-1">Prenatal & Maternal</div>
+          <div class="text-[11px] text-muted-foreground mt-1">Checkup para sa mga buntis at folic acid.</div>
         </div>
-
+        <div class="bg-card p-4 rounded-xl border border-border">
+          <div class="text-xs font-bold text-primary uppercase">Martes</div>
+          <div class="font-bold text-sm text-foreground mt-1">EPI Bakuna ng Sanggol</div>
+          <div class="text-[11px] text-muted-foreground mt-1">BCG, Polio, Pentavalent, Measles.</div>
+        </div>
+        <div class="bg-card p-4 rounded-xl border border-border">
+          <div class="text-xs font-bold text-primary uppercase">Miyerkules</div>
+          <div class="font-bold text-sm text-foreground mt-1">Senior Citizens</div>
+          <div class="text-[11px] text-muted-foreground mt-1">Blood pressure, blood sugar, gamot.</div>
+        </div>
+        <div class="bg-card p-4 rounded-xl border border-border">
+          <div class="text-xs font-bold text-primary uppercase">Huwebes</div>
+          <div class="font-bold text-sm text-foreground mt-1">Dental Health</div>
+          <div class="text-[11px] text-muted-foreground mt-1">Libreng bunot ng ngipin at checkup.</div>
+        </div>
+        <div class="bg-card p-4 rounded-xl border border-border">
+          <div class="text-xs font-bold text-primary uppercase">Biyernes</div>
+          <div class="font-bold text-sm text-foreground mt-1">Pangkalahatang Konsultasyon</div>
+          <div class="text-[11px] text-muted-foreground mt-1">TB-DOTS at regular checkup.</div>
+        </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ================= BARANGAY LEADERSHIP & OFFICIALS ================= -->
-  <section id="leadership" class="py-16 bg-slate-50 border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- ================= E-REKLAMO / SUMBONG DESK ================= -->
+  <section id="reklamo" class="texture-grid mx-auto max-w-6xl px-4 py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
       
-      <div class="text-center max-w-3xl mx-auto space-y-3">
-        <div class="inline-flex items-center gap-1.5 bg-blue-100 text-blue-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-          <i data-lucide="users" class="w-3.5 h-3.5"></i>
-          <span>Pamunuan ng Barangay</span>
-        </div>
-        <h2 class="text-3xl font-extrabold text-slate-900">
-          Sangguniang Barangay ng Ibayo-Tipas
-        </h2>
-        <p class="text-slate-600 text-sm">
-          Mga halal na lingkod-bayan na tapat at buong pusong naglilingkod para sa kapayapaan at kaunlaran ng komunidad.
+      <div class="lg:col-span-5 space-y-3">
+        <p class="text-sm font-semibold uppercase tracking-widest text-primary">Sumbong at Suhestiyon</p>
+        <h2 class="text-3xl font-bold font-heading text-foreground">e-Reklamo Desk</h2>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          Iparating sa aming tanggapan ang anumang alalahanin sa kapayapaan, sirang streetlight, baradong kanal, o mga pampublikong usapin sa Ibayo-Tipas.
         </p>
+        <div class="p-4 rounded-xl bg-card border border-border text-xs text-muted-foreground space-y-1">
+          <div class="font-bold text-foreground flex items-center gap-1.5">
+            <i data-lucide="shield-check" class="size-4 text-primary"></i>
+            <span>Data Privacy Protected</span>
+          </div>
+          <div>Ligtas at kumpidensyal ang inyong pagkakakilanlan. Aaksyunan ito agad ng BPSO Patrol Desk.</div>
+        </div>
       </div>
 
-      <!-- Captain Feature Card -->
-      <div class="max-w-3xl mx-auto mt-10 bg-white rounded-2xl border border-slate-200 shadow-md p-6 sm:p-8">
-        <div class="flex flex-col sm:flex-row items-center gap-6">
-          <div class="w-28 h-28 rounded-2xl bg-gradient-to-tr from-blue-950 to-blue-700 flex items-center justify-center text-white text-3xl font-black shadow-lg border-4 border-amber-400 shrink-0">
-            PB
-          </div>
-          <div class="space-y-2 text-center sm:text-left">
-            <span class="bg-blue-100 text-blue-900 text-[11px] font-bold px-2.5 py-0.5 rounded-full uppercase">
-              Punong Barangay (Barangay Captain)
-            </span>
-            <h3 class="text-2xl font-black text-slate-900">
-              Hon. Willy Flores
-            </h3>
-            <p class="text-xs text-slate-600 leading-relaxed">
-              "Ang aming tungkulin ay maglingkod nang bukas ang puso at may pananagutan sa bawat mamamayan ng Ibayo-Tipas. Patuloy naming paiigtingin ang mabilis na serbisyo, kalinisan, kapayapaan, at kalusugan para sa ating komunidad."
-            </p>
-            <div class="flex flex-wrap items-center justify-center sm:justify-start gap-3 pt-2 text-xs font-semibold text-slate-700">
-              <span class="flex items-center gap-1">
-                <i data-lucide="mail" class="w-3.5 h-3.5 text-blue-700"></i>
-                teamwillyflores2023@gmail.com
-              </span>
-              <span>•</span>
-              <span class="flex items-center gap-1">
-                <i data-lucide="phone" class="w-3.5 h-3.5 text-blue-700"></i>
-                0918 962 0231
-              </span>
+      <div class="lg:col-span-7">
+        <form id="complaint-form" class="rounded-2xl border border-border bg-card p-6 shadow-sm space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-foreground mb-1">Buong Pangalan (Opsyonal)</label>
+              <input type="text" placeholder="Hal. Juan Dela Cruz" class="w-full bg-background border border-border rounded-xl px-3.5 py-2 text-xs focus:bg-white focus:ring-2 focus:ring-primary focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-foreground mb-1">Contact Number *</label>
+              <input type="tel" required placeholder="09XXXXXXXXX" class="w-full bg-background border border-border rounded-xl px-3.5 py-2 text-xs focus:bg-white focus:ring-2 focus:ring-primary focus:outline-none">
             </div>
           </div>
-        </div>
-      </div>
 
-      <!-- Council Grid -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8">
-        <div class="bg-white p-4 rounded-xl border border-slate-200 text-center space-y-1">
-          <div class="w-10 h-10 mx-auto rounded-full bg-blue-100 text-blue-800 flex items-center justify-center font-bold text-xs mb-2">
-            SB
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-foreground mb-1">Uri ng Sumbong *</label>
+              <select required class="w-full bg-background border border-border rounded-xl px-3.5 py-2 text-xs focus:bg-white focus:ring-2 focus:ring-primary focus:outline-none">
+                <option value="peace">Peace & Order / Ingay</option>
+                <option value="sanitation">Basura / Baradong Kanal</option>
+                <option value="streetlight">Pundidong Streetlight</option>
+                <option value="animals">Stray Animals / Alagang Hayop</option>
+                <option value="suggestion">Suhestiyon sa Barangay</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-foreground mb-1">Lokasyon sa Ibayo-Tipas *</label>
+              <input type="text" required placeholder="Hal. Dr. Natividad St. malapit sa..." class="w-full bg-background border border-border rounded-xl px-3.5 py-2 text-xs focus:bg-white focus:ring-2 focus:ring-primary focus:outline-none">
+            </div>
           </div>
-          <h4 class="font-bold text-xs text-slate-900">Sangguniang Barangay</h4>
-          <p class="text-[11px] text-slate-500">Mga Kagawad ng Barangay</p>
-        </div>
-        <div class="bg-white p-4 rounded-xl border border-slate-200 text-center space-y-1">
-          <div class="w-10 h-10 mx-auto rounded-full bg-purple-100 text-purple-800 flex items-center justify-center font-bold text-xs mb-2">
-            SK
+
+          <div>
+            <label class="block text-xs font-bold text-foreground mb-1">Salaysay o Detalye ng Ulat *</label>
+            <textarea required rows="3" placeholder="Ilarawan nang maayos ang sitwasyon..." class="w-full bg-background border border-border rounded-xl px-3.5 py-2 text-xs focus:bg-white focus:ring-2 focus:ring-primary focus:outline-none"></textarea>
           </div>
-          <h4 class="font-bold text-xs text-slate-900">Sangguniang Kabataan</h4>
-          <p class="text-[11px] text-slate-500">SK Chairperson & Council</p>
-        </div>
-        <div class="bg-white p-4 rounded-xl border border-slate-200 text-center space-y-1">
-          <div class="w-10 h-10 mx-auto rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-xs mb-2">
-            SEC
-          </div>
-          <h4 class="font-bold text-xs text-slate-900">Barangay Secretariat</h4>
-          <p class="text-[11px] text-slate-500">Kalihim at Ingat-Yaman</p>
-        </div>
-        <div class="bg-white p-4 rounded-xl border border-slate-200 text-center space-y-1">
-          <div class="w-10 h-10 mx-auto rounded-full bg-rose-100 text-rose-800 flex items-center justify-center font-bold text-xs mb-2">
-            BPSO
-          </div>
-          <h4 class="font-bold text-xs text-slate-900">BPSO & Tanod Force</h4>
-          <p class="text-[11px] text-slate-500">24/7 Peace & Security</p>
-        </div>
+
+          <button type="submit" class="w-full rounded-full bg-primary hover:bg-primary-hover text-primary-foreground font-bold py-2.5 text-xs shadow-sm transition-all flex items-center justify-center gap-2">
+            <i data-lucide="send" class="size-4"></i>
+            <span>Isumite ang Ulat sa BPSO Desk</span>
+          </button>
+        </form>
       </div>
 
     </div>
   </section>
 
-  <!-- ================= HERITAGE & CULTURE (TIPAS HOPIA) ================= -->
-  <section class="py-14 bg-gradient-to-r from-amber-600 via-yellow-600 to-amber-700 text-white relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-        <div class="md:col-span-8 space-y-3">
-          <span class="bg-black/20 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-            Kultura at Yaman ng Tipas
+  <!-- ================= CONTACT & FOOTER (LOVABLE THEME) ================= -->
+  <footer id="contact" class="bg-leaf text-primary-foreground border-t border-leaf-light mt-auto">
+    
+    <div class="mx-auto max-w-6xl px-4 py-16">
+      
+      <div class="mb-10 max-w-xl">
+        <div class="flex items-center gap-2.5 mb-3">
+          <span class="flex size-9 items-center justify-center rounded-full bg-sun text-sun-foreground">
+            <i data-lucide="leaf" class="size-4"></i>
           </span>
-          <h2 class="text-2xl sm:text-3xl font-black">
-            Tahanan ng Masarap at Orihinal na Tipas Hopia
-          </h2>
-          <p class="text-amber-100 text-sm leading-relaxed max-w-2xl">
-            Kilala ang buong Tipas sa buong Pilipinas at mundo bilang kabisera ng pinakamasarap na Hopia (Hopia Mongo, Ube, Pastillas, atbp.). Ipinagmamalaki ng Barangay Ibayo-Tipas ang mayamang kasaysayan ng kasipagan ng ating mga manggagawa at panadero na patuloy na nagtataguyod sa ating lokal na ekonomiya.
-          </p>
+          <span class="text-xl font-black font-heading tracking-tight">Barangay Ibayo-Tipas</span>
         </div>
-        <div class="md:col-span-4 flex justify-center md:justify-end">
-          <div class="bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-2xl text-center space-y-2 max-w-xs">
-            <i data-lucide="cookie" class="w-10 h-10 mx-auto text-amber-200"></i>
-            <div class="font-black text-lg">Suportahan ang Lokal</div>
-            <p class="text-xs text-amber-100">
-              Tangkilikin ang mga lehitimong panaderya at maliliit na negosyo sa bawat eskinita at purok ng Ibayo-Tipas!
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= CITIZEN FEEDBACK & BLOTTER / E-REKLAMO ================= -->
-  <section id="reklamo" class="py-16 bg-white border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-        
-        <div class="lg:col-span-5 space-y-4">
-          <div class="inline-flex items-center gap-1.5 bg-rose-50 text-rose-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-            <i data-lucide="message-square-warning" class="w-3.5 h-3.5"></i>
-            <span>Sumbong at Suhestiyon</span>
-          </div>
-          <h2 class="text-3xl font-extrabold text-slate-900">
-            e-Reklamo at Ulat sa Barangay
-          </h2>
-          <p class="text-slate-600 text-sm leading-relaxed">
-            Mayroong reklamo sa ingay, ilaw sa kalsada, baradong kanal, stray animals, o iba pang usaping pangkapayapaan? Iparating sa aming tanggapan nang mabilis at kumpidensyal.
-          </p>
-
-          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 text-xs text-slate-600 space-y-2">
-            <div class="font-bold text-slate-800 flex items-center gap-1.5">
-              <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
-              <span>Garantiyang Pagkumpidensyal (Data Privacy)</span>
-            </div>
-            <p>
-              Alinsunod sa Data Privacy Act of 2012, ang iyong personal na pagkakakilanlan ay protektado at gagamitin lamang sa opisyal na imbestigasyon ng Barangay Peacekeeping Action Team (BPSO).
-            </p>
-          </div>
-
-          <div class="pt-2 text-xs text-slate-500">
-            <p>Para sa mga agarang emergency at banta sa buhay, <strong>huwag maghintay sa form</strong>. Tumawag agad sa hotline: <a href="tel:09189620231" class="text-red-600 font-bold underline">0918 962 0231</a>.</p>
-          </div>
-        </div>
-
-        <div class="lg:col-span-7">
-          <form id="complaint-form" class="bg-slate-50 p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4">
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label class="block text-xs font-bold text-slate-700 mb-1">Buong Pangalan (Opsyonal para sa anonymous ulat)</label>
-                <input type="text" placeholder="Hal. Juan Dela Cruz" class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-blue-600 focus:outline-none">
-              </div>
-              <div>
-                <label class="block text-xs font-bold text-slate-700 mb-1">Contact Number (Para sa update) *</label>
-                <input type="tel" required placeholder="09XXXXXXXXX" class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-blue-600 focus:outline-none">
-              </div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label class="block text-xs font-bold text-slate-700 mb-1">Uri ng Sumbong o Ulat *</label>
-                <select required class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-blue-600 focus:outline-none">
-                  <option value="peace">Peace and Order / Ingay o Sigalot</option>
-                  <option value="sanitation">Basura / Baradong Kanal / Drainage</option>
-                  <option value="streetlight">Pundidong Ilaw sa Poste / Streetlight</option>
-                  <option value="animals">Stray Animals / Pabayang Alagang Hayop</option>
-                  <option value="obstruction">Road Obstruction / Sagabal sa Kalsada</option>
-                  <option value="suggestion">Mungkahi o Suhestiyon para sa Barangay</option>
-                  <option value="others">Iba pang Usapin</option>
-                </select>
-              </div>
-              <div>
-                <label class="block text-xs font-bold text-slate-700 mb-1">Eksaktong Lokasyon sa Ibayo-Tipas *</label>
-                <input type="text" required placeholder="Hal. Dr. Natividad St. malapit sa..." class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-blue-600 focus:outline-none">
-              </div>
-            </div>
-
-            <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">Salaysay o Detalye ng Ulat *</label>
-              <textarea required rows="4" placeholder="Ilarawan nang malinaw ang pangyayari o sitwasyon..." class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-blue-600 focus:outline-none"></textarea>
-            </div>
-
-            <button type="submit" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 shadow-md transition-all">
-              <i data-lucide="send" class="w-4 h-4"></i>
-              <span>Isumite ang Ulat sa BPSO Desk</span>
-            </button>
-
-          </form>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================= CONTACT, LOCATION & OFFICE HOURS ================= -->
-  <section id="contact" class="py-16 bg-slate-100 border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-2xl mx-auto mb-12">
-        <div class="inline-flex items-center gap-1.5 bg-blue-100 text-blue-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2">
-          <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
-          <span>Lokasyon at Impormasyon</span>
-        </div>
-        <h2 class="text-3xl font-extrabold text-slate-900">
-          Bisitahin ang Barangay Hall
-        </h2>
-        <p class="text-slate-600 text-sm mt-1">
-          Handang maglingkod sa inyo ang aming tanggapan tuwing araw ng trabaho.
+        <p class="text-sm text-primary-foreground/80 leading-relaxed">
+          Malinis, ligtas, at maunlad na barangay — para sa bawat residente ng Ibayo-Tipas, Taguig City.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 border-t border-primary-foreground/15 pt-8 text-sm">
         
-        <!-- Info Cards -->
-        <div class="lg:col-span-5 space-y-4">
-          
-          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
-            <div class="p-3 bg-red-100 text-red-600 rounded-xl shrink-0">
-              <i data-lucide="map-pin" class="w-6 h-6"></i>
-            </div>
-            <div>
-              <h4 class="font-bold text-sm text-slate-900">Address ng Barangay Hall</h4>
-              <p class="text-xs text-slate-600 mt-1">
-                17 Dr. Natividad St., Ibayo-Tipas, Lungsod ng Taguig, Metro Manila
-              </p>
-              <p class="text-[11px] text-slate-400 mt-1">
-                Landmark: Access via F. Manalo Street
-              </p>
-            </div>
-          </div>
-
-          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
-            <div class="p-3 bg-blue-100 text-blue-900 rounded-xl shrink-0">
-              <i data-lucide="clock" class="w-6 h-6"></i>
-            </div>
-            <div>
-              <h4 class="font-bold text-sm text-slate-900">Oras ng Tanggapan (Office Hours)</h4>
-              <p class="text-xs text-slate-600 mt-1">
-                Lunes hanggang Biyernes: 8:00 AM – 5:00 PM
-              </p>
-              <p class="text-[11px] text-emerald-600 font-bold mt-1">
-                24/7 Naka-duty ang BPSO Patrol at Emergency Medic Team
-              </p>
-            </div>
-          </div>
-
-          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
-            <div class="p-3 bg-emerald-100 text-emerald-700 rounded-xl shrink-0">
-              <i data-lucide="phone" class="w-6 h-6"></i>
-            </div>
-            <div class="space-y-1">
-              <h4 class="font-bold text-sm text-slate-900">Direktang Telepono & Email</h4>
-              <div class="text-xs text-slate-600 flex items-center justify-between gap-2">
-                <span>Barangay Hall: <strong>0918 962 0231</strong></span>
-                <button class="copy-hotline text-blue-600 hover:underline text-[11px]" data-number="09189620231">Kopyahin</button>
-              </div>
-              <div class="text-xs text-slate-600 flex items-center justify-between gap-2">
-                <span>Ambulance / Medic: <strong>0962 743 8455</strong></span>
-                <button class="copy-hotline text-blue-600 hover:underline text-[11px]" data-number="09627438455">Kopyahin</button>
-              </div>
-              <div class="text-xs text-slate-600 flex items-center justify-between gap-2">
-                <span>Health Center: <strong>0961 734 0886</strong></span>
-                <button class="copy-hotline text-blue-600 hover:underline text-[11px]" data-number="09617340886">Kopyahin</button>
-              </div>
-              <div class="text-xs text-slate-600 pt-1">
-                Email: <a href="mailto:teamwillyflores2023@gmail.com" class="text-blue-600 underline">teamwillyflores2023@gmail.com</a>
-              </div>
-            </div>
-          </div>
-
+        <!-- Col 1: Contact info matching reference site -->
+        <div class="space-y-3">
+          <h4 class="font-bold text-sun uppercase tracking-wider text-xs font-heading">Contact Us</h4>
+          <ul class="space-y-2 text-primary-foreground/85 text-xs">
+            <li class="flex items-start gap-2">
+              <i data-lucide="map-pin" class="size-4 text-sun shrink-0 mt-0.5"></i>
+              <span>700 Dr. Natividad Street, Barangay Ibayo-Tipas, Taguig City</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="phone" class="size-4 text-sun shrink-0"></i>
+              <a href="tel:+63285259348" class="hover:text-sun">(02) 8525-9348</a>
+              <span>·</span>
+              <a href="tel:+639189620231" class="hover:text-sun">0918 962 0231</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="mail" class="size-4 text-sun shrink-0"></i>
+              <a href="mailto:brgy.ibayotipas03@gmail.com" class="hover:text-sun">brgy.ibayotipas03@gmail.com</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="clock" class="size-4 text-sun shrink-0"></i>
+              <span>Monday – Friday, 7:00 AM – 4:00 PM</span>
+            </li>
+          </ul>
         </div>
 
-        <!-- Map / Directions preview -->
-        <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm flex flex-col">
-          <div class="p-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
-            <div class="flex items-center gap-2 text-xs font-bold text-slate-700">
-              <i data-lucide="navigation" class="w-4 h-4 text-blue-600"></i>
-              <span>Mapa ng Barangay Ibayo-Tipas</span>
-            </div>
-            <a href="https://maps.google.com/?q=Barangay+Ibayo+Tipas+Taguig" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-blue-600 hover:underline flex items-center gap-1">
-              <span>Bukas sa Google Maps</span>
-              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+        <!-- Col 2: Emergency Hotlines -->
+        <div class="space-y-3">
+          <h4 class="font-bold text-sun uppercase tracking-wider text-xs font-heading">Emergency Hotlines</h4>
+          <ul class="space-y-1.5 text-xs text-primary-foreground/85">
+            <li>Medic & Ambulance 24/7: <a href="tel:09627438455" class="text-sun font-bold">0962 743 8455</a></li>
+            <li>Barangay Hall / BPSO: <a href="tel:09189620231" class="text-white font-bold">0918 962 0231</a></li>
+            <li>Health Center: <a href="tel:09617340886" class="text-white font-bold">0961 734 0886</a></li>
+            <li>Taguig Command Center: <span class="text-white font-bold">(02) 8789-3200</span></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Follow Us & Admin link -->
+        <div class="space-y-3">
+          <h4 class="font-bold text-sun uppercase tracking-wider text-xs font-heading">Follow Us</h4>
+          <p class="text-xs text-primary-foreground/80">
+            For announcements and urgent advisories, follow our official Facebook page.
+          </p>
+          <a href="https://www.facebook.com/profile.php?id=100092404114029" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full border border-primary-foreground/30 px-4 py-2 text-xs font-semibold hover:bg-white/10 transition-colors">
+            <i data-lucide="facebook" class="size-4"></i>
+            <span>Barangay Ibayo-Tipas on Facebook</span>
+          </a>
+          <div class="pt-2">
+            <a href="admin.html" class="inline-flex items-center gap-1.5 text-xs text-sun hover:underline font-bold">
+              <i data-lucide="shield-check" class="size-3.5"></i>
+              <span>Staff & Admin Portal (Login)</span>
             </a>
           </div>
-          
-          <!-- OpenStreetMap iframe -->
-          <div class="w-full h-80 bg-slate-200 relative">
-            <iframe 
-              class="w-full h-full border-0" 
-              src="https://www.openstreetmap.org/export/embed.html?bbox=121.0700%2C14.5300%2C121.0950%2C14.5500&amp;layer=mapnik" 
-              loading="lazy">
-            </iframe>
-          </div>
-
-          <div class="p-4 bg-white text-xs text-slate-500 flex flex-wrap items-center justify-between gap-2 border-t border-slate-100">
-            <span>Paano pumunta: Mula Taguig City Hall o Pateros, dumaan sa F. Manalo St. papuntang Dr. Natividad St.</span>
-            <span class="font-bold text-slate-700">Ibayo-Tipas, Taguig</span>
-          </div>
         </div>
 
       </div>
 
-    </div>
-  </section>
-
-  <!-- ================= FOOTER ================= -->
-  <footer class="bg-slate-950 text-slate-400 text-xs py-12 mt-auto border-t border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-        
-        <!-- Col 1: About -->
-        <div class="space-y-3">
-          <div class="flex items-center gap-2 text-white font-extrabold text-sm">
-            <div class="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center text-[10px]">BIT</div>
-            <span>BARANGAY IBAYO-TIPAS</span>
-          </div>
-          <p class="text-slate-400 text-xs leading-relaxed">
-            Opisyal na website at impormasyon ng komunidad ng Barangay Ibayo-Tipas, Lungsod ng Taguig, Metro Manila.
-          </p>
-          <div class="text-[11px] text-slate-500">
-            Pamumuno ni Punong Barangay Willy Flores (Team Willy Flores 2023 - Kasalukuyan).
-          </div>
-        </div>
-
-        <!-- Col 2: Quick Links -->
-        <div class="space-y-2">
-          <h4 class="text-white font-bold text-xs uppercase tracking-wider">Mabilisang Link</h4>
-          <ul class="space-y-1.5 text-xs">
-            <li><a href="#services" class="hover:text-white transition-colors">Barangay Clearance Request</a></li>
-            <li><a href="#services" class="hover:text-white transition-colors">Certificate of Indigency</a></li>
-            <li><a href="#announcements" class="hover:text-white transition-colors">Mga Balita at Anunsyo</a></li>
-            <li><a href="#health" class="hover:text-white transition-colors">Health Center Clinic Schedule</a></li>
-            <li><a href="#reklamo" class="hover:text-white transition-colors">e-Reklamo Desk</a></li>
-          </ul>
-        </div>
-
-        <!-- Col 3: Hotlines -->
-        <div class="space-y-2">
-          <h4 class="text-white font-bold text-xs uppercase tracking-wider">Hotlines</h4>
-          <ul class="space-y-1.5 text-xs">
-            <li>Medic & Ambulance: <strong class="text-white">0962 743 8455</strong></li>
-            <li>Barangay Hall / BPSO: <strong class="text-white">0918 962 0231</strong></li>
-            <li>Health Center: <strong class="text-white">0961 734 0886</strong></li>
-            <li>Taguig Command Center: <strong class="text-white">(02) 8789-3200</strong></li>
-            <li>Emergency Police/BFP: <strong class="text-white">165-7777</strong></li>
-          </ul>
-        </div>
-
-        <!-- Col 4: Official Socials -->
-        <div class="space-y-3">
-          <h4 class="text-white font-bold text-xs uppercase tracking-wider">Sundan sa Facebook</h4>
-          <p class="text-slate-400 text-xs leading-relaxed">
-            I-follow ang aming opisyal na Facebook page para sa mga live na abiso at livestreaming:
-          </p>
-          <a href="https://www.facebook.com/profile.php?id=100092404114029" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-3 py-2 rounded-xl text-xs transition-colors">
-            <i data-lucide="facebook" class="w-4 h-4"></i>
-            <span>Barangay Ibayo-Tipas FB</span>
-          </a>
-        </div>
-
-      </div>
-
-      <div class="pt-8 border-t border-slate-800 text-center text-slate-500 text-[11px] flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div class="mt-12 pt-8 border-t border-primary-foreground/15 text-center text-xs text-primary-foreground/60 flex flex-col sm:flex-row items-center justify-between gap-2">
         <div>
-          © 2026 Barangay Ibayo-Tipas, City of Taguig. Lahat ng Karapatan ay Nakalaan.
+          © 2026 Barangay Ibayo-Tipas, Taguig City. Lahat ng Karapatan ay Nakalaan.
         </div>
-        <div class="flex items-center gap-4">
-          <span>Binuo para sa Mamamayang Tipaseno • I Love Taguig</span>
-          <a href="admin.html" class="text-slate-400 hover:text-white transition-colors flex items-center gap-1 font-semibold underline cursor-pointer">
-            <i data-lucide="shield-check" class="w-3.5 h-3.5 text-blue-400"></i>
-            <span>Staff & Admin Portal</span>
-          </a>
+        <div>
+          Tuloy ang Serbisyo! • Malinis, Ligtas, at Maunlad
         </div>
       </div>
+
     </div>
+
   </footer>
 
   <!-- ================= DOCUMENT REQUEST MODAL ================= -->
-  <div id="request-modal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4 overflow-y-auto">
-    
-    <div class="bg-white w-full max-w-xl rounded-2xl shadow-2xl border border-slate-200 overflow-hidden relative my-8">
+  <div id="request-modal" class="fixed inset-0 z-50 hidden bg-leaf-dark/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-card w-full max-w-xl rounded-2xl shadow-2xl border border-border overflow-hidden relative my-8">
       
       <!-- Modal Header -->
-      <div class="bg-gradient-to-r from-blue-900 to-blue-950 text-white p-5 flex items-center justify-between">
+      <div class="bg-leaf text-primary-foreground p-5 flex items-center justify-between">
         <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center">
-            <i data-lucide="file-text" class="w-5 h-5 text-amber-300"></i>
+          <div class="size-9 rounded-full bg-sun text-sun-foreground flex items-center justify-center font-bold">
+            <i data-lucide="file-text" class="size-5"></i>
           </div>
           <div>
-            <h3 class="font-extrabold text-base leading-tight">Online Document Request</h3>
-            <p class="text-xs text-blue-200">Barangay Ibayo-Tipas E-Services</p>
+            <h3 class="font-extrabold text-base leading-tight font-heading">Online Document Request</h3>
+            <p class="text-xs text-primary-foreground/80">Barangay Ibayo-Tipas E-Services</p>
           </div>
         </div>
-        <button class="close-request-modal text-white/70 hover:text-white p-1 rounded-lg hover:bg-white/10 transition-colors">
-          <i data-lucide="x" class="w-5 h-5"></i>
+        <button class="close-request-modal text-primary-foreground/70 hover:text-white p-1 rounded-lg hover:bg-white/10 transition-colors">
+          <i data-lucide="x" class="size-5"></i>
         </button>
       </div>
 
@@ -1334,8 +854,8 @@
         <form id="document-request-form" class="space-y-4">
           
           <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1">Uri ng Dokumento *</label>
-            <select id="doc-type-select" required class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs font-semibold focus:ring-2 focus:ring-blue-600 focus:outline-none">
+            <label class="block text-xs font-bold text-foreground mb-1">Uri ng Dokumento *</label>
+            <select id="doc-type-select" required class="w-full bg-background border border-border rounded-xl px-3 py-2 text-xs font-semibold focus:ring-2 focus:ring-primary focus:outline-none">
               <option value="clearance">Barangay Clearance</option>
               <option value="indigency">Certificate of Indigency (Libre)</option>
               <option value="residency">Certificate of Residency</option>
@@ -1346,8 +866,8 @@
           </div>
 
           <!-- Dynamic Requirements Checklist -->
-          <div class="bg-blue-50/60 border border-blue-200 rounded-xl p-3.5 space-y-1.5">
-            <div class="text-[11px] font-bold text-blue-900 flex items-center gap-1.5">
+          <div class="bg-secondary/60 border border-border rounded-xl p-3.5 space-y-1.5">
+            <div class="text-[11px] font-bold text-secondary-foreground flex items-center gap-1.5">
               <i data-lucide="info" class="w-3.5 h-3.5"></i>
               <span>Mga Kinakailangang Dalhin sa Pag-claim:</span>
             </div>
@@ -1358,30 +878,30 @@
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">Buong Pangalan ng Aplikante *</label>
-              <input type="text" id="applicant-name" required placeholder="Hal. Maria Santos Cruz" class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-blue-600 focus:outline-none">
+              <label class="block text-xs font-bold text-foreground mb-1">Buong Pangalan ng Aplikante *</label>
+              <input type="text" id="applicant-name" required placeholder="Hal. Maria Santos Cruz" class="w-full bg-background border border-border rounded-xl px-3 py-2 text-xs focus:ring-2 focus:ring-primary focus:outline-none">
             </div>
             <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">Mobile / Contact Number *</label>
-              <input type="tel" id="applicant-phone" required placeholder="09XXXXXXXXX" class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-blue-600 focus:outline-none">
+              <label class="block text-xs font-bold text-foreground mb-1">Mobile / Contact Number *</label>
+              <input type="tel" id="applicant-phone" required placeholder="09XXXXXXXXX" class="w-full bg-background border border-border rounded-xl px-3 py-2 text-xs focus:ring-2 focus:ring-primary focus:outline-none">
             </div>
           </div>
 
           <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1">Tirahan sa Ibayo-Tipas (Purok / Kalye) *</label>
-            <input type="text" id="applicant-address" required placeholder="Hal. #45 Dr. Natividad St., Purok 2, Ibayo-Tipas" class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-blue-600 focus:outline-none">
+            <label class="block text-xs font-bold text-foreground mb-1">Tirahan sa Ibayo-Tipas (Purok / Kalye) *</label>
+            <input type="text" id="applicant-address" required placeholder="Hal. 700 Dr. Natividad St., Purok 2, Ibayo-Tipas" class="w-full bg-background border border-border rounded-xl px-3 py-2 text-xs focus:ring-2 focus:ring-primary focus:outline-none">
           </div>
 
           <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1">Layunin o Dahilan ng Pagkuha (Purpose) *</label>
-            <input type="text" id="applicant-purpose" required placeholder="Hal. Para sa Local Employment, Postal ID, o Hospital Bill" class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-xs focus:ring-2 focus:ring-blue-600 focus:outline-none">
+            <label class="block text-xs font-bold text-foreground mb-1">Layunin o Dahilan ng Pagkuha (Purpose) *</label>
+            <input type="text" id="applicant-purpose" required placeholder="Hal. Para sa Local Employment, Postal ID, o School" class="w-full bg-background border border-border rounded-xl px-3 py-2 text-xs focus:ring-2 focus:ring-primary focus:outline-none">
           </div>
 
           <div class="pt-2 flex items-center justify-end gap-3">
-            <button type="button" class="close-request-modal px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 transition-colors">
+            <button type="button" class="close-request-modal px-4 py-2 rounded-full text-xs font-bold text-muted-foreground hover:bg-secondary transition-colors">
               Kanselahin
             </button>
-            <button type="submit" class="bg-blue-900 hover:bg-blue-800 text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-1.5">
+            <button type="submit" class="rounded-full bg-sun hover:bg-sun-hover text-sun-foreground font-bold px-6 py-2.5 text-xs shadow-sm transition-transform hover:scale-105 flex items-center gap-1.5">
               <span>Isumite ang Aplikasyon</span>
               <i data-lucide="check-circle" class="w-4 h-4"></i>
             </button>
@@ -1392,177 +912,58 @@
 
       <!-- View 2: Printable Confirmation Stub -->
       <div id="request-confirmation-view" class="hidden p-6">
-        
-        <div id="printable-stub" class="border-2 border-dashed border-blue-300 rounded-2xl p-6 bg-slate-50 space-y-4">
-          <div class="text-center border-b border-slate-200 pb-3">
-            <div class="text-[11px] font-bold text-blue-900 uppercase">Republika ng Pilipinas • Lungsod ng Taguig</div>
-            <h4 class="text-base font-black text-slate-900">BARANGAY IBAYO-TIPAS</h4>
-            <div class="text-xs text-slate-500">Official Document Claim Stub</div>
+        <div id="printable-stub" class="border-2 border-dashed border-primary/40 rounded-2xl p-6 bg-secondary/30 space-y-4">
+          <div class="text-center border-b border-border pb-3">
+            <div class="text-[11px] font-bold text-primary uppercase font-heading">Republika ng Pilipinas • Lungsod ng Taguig</div>
+            <h4 class="text-base font-black text-foreground font-heading">BARANGAY IBAYO-TIPAS</h4>
+            <div class="text-xs text-muted-foreground">Official Document Claim Stub</div>
           </div>
 
-          <div class="bg-white p-4 rounded-xl border border-slate-200 text-center">
-            <div class="text-xs text-slate-500 font-semibold">Iyong Tracking & Reference Code:</div>
-            <div id="stub-tracking-code" class="text-2xl font-black text-blue-900 tracking-wider my-1">
+          <div class="bg-white p-4 rounded-xl border border-border text-center">
+            <div class="text-xs text-muted-foreground font-semibold">Iyong Tracking & Reference Code:</div>
+            <div id="stub-tracking-code" class="text-2xl font-black text-primary tracking-wider my-1 font-mono">
               BIT-2026-00000
             </div>
-            <div class="text-[11px] text-emerald-600 font-bold">✓ Tagumpay na naitala sa database ng Barangay</div>
+            <div class="text-[11px] text-primary font-bold">✓ Tagumpay na naitala sa database ng Barangay</div>
           </div>
 
           <div class="space-y-2 text-xs">
-            <div class="flex justify-between border-b border-slate-200 pb-1">
-              <span class="text-slate-500">Pangalan ng Aplikante:</span>
-              <span id="stub-name" class="font-bold text-slate-800">-</span>
+            <div class="flex justify-between border-b border-border pb-1">
+              <span class="text-muted-foreground">Pangalan ng Aplikante:</span>
+              <span id="stub-name" class="font-bold text-foreground">-</span>
             </div>
-            <div class="flex justify-between border-b border-slate-200 pb-1">
-              <span class="text-slate-500">Dokumentong Hinihiling:</span>
-              <span id="stub-doc" class="font-bold text-slate-800">-</span>
+            <div class="flex justify-between border-b border-border pb-1">
+              <span class="text-muted-foreground">Dokumentong Hinihiling:</span>
+              <span id="stub-doc" class="font-bold text-foreground">-</span>
             </div>
-            <div class="flex justify-between border-b border-slate-200 pb-1">
-              <span class="text-slate-500">Contact Number:</span>
-              <span id="stub-phone" class="font-bold text-slate-800">-</span>
+            <div class="flex justify-between border-b border-border pb-1">
+              <span class="text-muted-foreground">Contact Number:</span>
+              <span id="stub-phone" class="font-bold text-foreground">-</span>
             </div>
-            <div class="flex justify-between border-b border-slate-200 pb-1">
-              <span class="text-slate-500">Address:</span>
-              <span id="stub-address" class="font-bold text-slate-800">-</span>
+            <div class="flex justify-between border-b border-border pb-1">
+              <span class="text-muted-foreground">Address:</span>
+              <span id="stub-address" class="font-bold text-foreground">-</span>
             </div>
-            <div class="flex justify-between pt-1 text-blue-950 font-bold">
+            <div class="flex justify-between pt-1 text-primary font-bold">
               <span>Maaaring Kunin Sa:</span>
               <span id="stub-pickup-date">-</span>
             </div>
           </div>
 
-          <div class="text-[11px] text-slate-500 bg-amber-50 p-2.5 rounded-lg border border-amber-200">
-            <strong>Paalala:</strong> Dalhin ang valid ID at Community Tax Certificate (Cedula) kasama ang reference code na ito sa pagtungo sa Barangay Hall (17 Dr. Natividad St., Ibayo-Tipas).
+          <div class="text-[11px] text-muted-foreground bg-sun/15 p-2.5 rounded-lg border border-sun/30">
+            <strong>Paalala:</strong> Dalhin ang valid ID at Cedula kasama ang reference code na ito sa pagtungo sa Barangay Hall (700 Dr. Natividad St., Ibayo-Tipas).
           </div>
         </div>
 
         <div class="mt-6 flex flex-wrap items-center justify-between gap-3 no-print">
-          <button id="print-stub-btn" class="bg-slate-900 hover:bg-slate-800 text-white px-4 py-2.5 rounded-xl text-xs font-bold flex items-center gap-2 transition-all">
+          <button id="print-stub-btn" class="rounded-full bg-leaf text-white px-5 py-2.5 text-xs font-bold flex items-center gap-2 hover:bg-leaf-dark transition-all">
             <i data-lucide="printer" class="w-4 h-4"></i>
             <span>I-print ang Claim Stub</span>
           </button>
-          <button class="close-request-modal bg-blue-900 text-white px-4 py-2.5 rounded-xl text-xs font-bold hover:bg-blue-800 transition-all">
+          <button class="close-request-modal rounded-full bg-primary hover:bg-primary-hover text-white px-5 py-2.5 text-xs font-bold transition-all">
             Tapos na (Close)
           </button>
         </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <!-- ================= BARANGAY STAFF / ADMIN MODAL ================= -->
-  <div id="admin-modal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4 overflow-y-auto">
-    <div class="bg-white w-full max-w-4xl rounded-2xl shadow-2xl border border-slate-200 overflow-hidden relative my-8">
-      
-      <!-- Modal Header -->
-      <div class="bg-gradient-to-r from-slate-900 to-blue-950 text-white p-5 flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center">
-            <i data-lucide="shield-check" class="w-5 h-5 text-amber-400"></i>
-          </div>
-          <div>
-            <h3 class="font-extrabold text-base leading-tight">Barangay Staff & Records Portal</h3>
-            <p class="text-xs text-slate-400">Ibayo-Tipas Administrative Management</p>
-          </div>
-        </div>
-        <button id="close-admin-btn" class="text-white/70 hover:text-white p-1 rounded-lg hover:bg-white/10 transition-colors">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
-      </div>
-
-      <!-- View 1: Auth Screen -->
-      <div id="admin-auth-view" class="p-8 max-w-md mx-auto text-center space-y-4">
-        <div class="w-16 h-16 bg-blue-50 text-blue-900 rounded-2xl flex items-center justify-center mx-auto">
-          <i data-lucide="lock" class="w-8 h-8"></i>
-        </div>
-        <h4 class="text-lg font-black text-slate-900">Ilagay ang Staff Passcode</h4>
-        <p class="text-xs text-slate-500">
-          Ang seksyong ito ay para lamang sa mga kawani at opisyal ng Barangay Ibayo-Tipas.
-        </p>
-
-        <form id="admin-passcode-form" class="space-y-3">
-          <input 
-            type="password" 
-            id="admin-passcode-input" 
-            required 
-            placeholder="Passcode (Default: tipas2026)" 
-            class="w-full text-center tracking-widest text-lg font-mono py-2.5 px-4 bg-slate-50 border border-slate-300 rounded-xl focus:bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none"
-          >
-          <div id="admin-auth-error" class="hidden text-xs text-red-600 font-bold">
-            Maling passcode! Pakisubukang muli (Default: tipas2026).
-          </div>
-          <button type="submit" class="w-full bg-blue-900 hover:bg-blue-800 text-white font-bold py-2.5 rounded-xl text-xs shadow-md transition-all">
-            I-unlock ang Records Dashboard
-          </button>
-        </form>
-      </div>
-
-      <!-- View 2: Dashboard Screen -->
-      <div id="admin-dashboard-view" class="hidden p-6 space-y-6">
-        
-        <!-- Stats Summary -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          <div class="bg-blue-50 p-4 rounded-xl border border-blue-200">
-            <span class="text-xs font-bold text-blue-800">Kabuuang Aplikasyon</span>
-            <div id="admin-stat-total-apps" class="text-2xl font-black text-blue-950 mt-1">0</div>
-          </div>
-          <div class="bg-amber-50 p-4 rounded-xl border border-amber-200">
-            <span class="text-xs font-bold text-amber-800">Under Review / Bago</span>
-            <div id="admin-stat-pending-apps" class="text-2xl font-black text-amber-900 mt-1">0</div>
-          </div>
-          <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200">
-            <span class="text-xs font-bold text-emerald-800">Handa nang Kunin</span>
-            <div id="admin-stat-ready-apps" class="text-2xl font-black text-emerald-900 mt-1">0</div>
-          </div>
-          <div class="bg-rose-50 p-4 rounded-xl border border-rose-200">
-            <span class="text-xs font-bold text-rose-800">Mga e-Reklamo / Ulat</span>
-            <div id="admin-stat-total-reklamo" class="text-2xl font-black text-rose-950 mt-1">0</div>
-          </div>
-        </div>
-
-        <!-- Action bar -->
-        <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
-          <div class="text-xs font-bold text-slate-800 flex items-center gap-1.5">
-            <i data-lucide="list" class="w-4 h-4 text-blue-900"></i>
-            <span>Talaan ng mga Document Applications</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <button id="admin-reset-demo-btn" class="bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold px-3 py-1.5 rounded-lg transition-colors border border-slate-300">
-              Load Sample Data
-            </button>
-            <button id="admin-export-csv-btn" class="bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1 shadow-sm">
-              <i data-lucide="download" class="w-3.5 h-3.5"></i>
-              <span>Export CSV (Excel / Google Sheets)</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Table of applications -->
-        <div class="overflow-x-auto border border-slate-200 rounded-xl">
-          <table class="w-full text-left border-collapse">
-            <thead>
-              <tr class="bg-slate-100 text-[11px] font-bold text-slate-600 uppercase border-b border-slate-200">
-                <th class="p-3">Tracking Code</th>
-                <th class="p-3">Aplikante</th>
-                <th class="p-3">Dokumento</th>
-                <th class="p-3">Contact</th>
-                <th class="p-3">Status</th>
-                <th class="p-3 text-right">Aksyon</th>
-              </tr>
-            </thead>
-            <tbody id="admin-apps-tbody" class="divide-y divide-slate-100">
-              <!-- Dynamically populated by app.js -->
-            </tbody>
-          </table>
-        </div>
-
-        <!-- Helpful instruction notice -->
-        <div class="p-3 rounded-lg bg-slate-50 border border-slate-200 text-[11px] text-slate-500">
-          💡 <strong>Tip para sa Staff:</strong> Kapag binago ang status sa "Ready for Pickup", makikita agad ito ng residente sa <a href="#tracker" class="text-blue-600 underline font-bold">Subaybayan (Tracker)</a> kapag inilagay nila ang kanilang reference code.
-        </div>
-
       </div>
 
     </div>
