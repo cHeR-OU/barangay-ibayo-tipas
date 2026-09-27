@@ -1,0 +1,86 @@
+/* Barangay Ibayo-Tipas Modern Portal Styles */
+
+:root {
+  --primary: #1e3a8a; /* Taguig Navy / Royal */
+  --primary-dark: #172554;
+  --secondary: #dc2626; /* Crimson Red */
+  --accent: #f59e0b; /* Golden Yellow */
+  --surface: #ffffff;
+  --surface-alt: #f8fafc;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Glow & decorative effects */
+.hero-gradient {
+  background: radial-gradient(circle at top right, rgba(30, 58, 138, 0.12), transparent 40%),
+              radial-gradient(circle at bottom left, rgba(220, 38, 38, 0.08), transparent 40%),
+              linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+}
+
+.card-hover {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -10px rgba(15, 23, 42, 0.12);
+}
+
+/* Emergency banner animation */
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.85; }
+}
+.pulse-emergency {
+  animation: pulse-subtle 2s infinite ease-in-out;
+}
+
+/* Modal animation */
+.modal-backdrop {
+  backdrop-filter: blur(6px);
+  background-color: rgba(15, 23, 42, 0.6);
+}
+
+/* Print claim stub styling */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-stub, #printable-stub * {
+    visibility: visible;
+  }
+  #printable-stub {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    background: white;
+    color: black;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
