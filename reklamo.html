@@ -501,6 +501,145 @@
 
   </div>
 
+  <!-- ================= DOCUMENT REQUEST MODAL ================= -->
+  <div id="request-modal" class="fixed inset-0 z-50 hidden bg-leaf-dark/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-card w-full max-w-xl rounded-2xl shadow-2xl border border-border overflow-hidden relative my-8">
+      
+      <!-- Modal Header -->
+      <div class="bg-leaf text-primary-foreground p-5 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="size-9 rounded-full bg-sun text-sun-foreground flex items-center justify-center font-bold">
+            <i data-lucide="file-text" class="size-5"></i>
+          </div>
+          <div>
+            <h3 class="font-extrabold text-base leading-tight font-heading">Online Document Request</h3>
+            <p class="text-xs text-primary-foreground/80">Barangay Ibayo-Tipas E-Services</p>
+          </div>
+        </div>
+        <button class="close-request-modal text-primary-foreground/70 hover:text-white p-1 rounded-lg hover:bg-white/10 transition-colors">
+          <i data-lucide="x" class="size-5"></i>
+        </button>
+      </div>
+
+      <!-- View 1: Form Fields View -->
+      <div id="request-form-fields-view" class="p-6">
+        <form id="document-request-form" class="space-y-4">
+          
+          <div>
+            <label class="block text-xs font-bold text-foreground mb-1">Uri ng Dokumento *</label>
+            <select id="doc-type-select" required class="w-full bg-background border border-border rounded-xl px-3 py-2 text-xs font-semibold focus:ring-2 focus:ring-primary focus:outline-none">
+              <option value="clearance">Barangay Clearance</option>
+              <option value="indigency">Certificate of Indigency (Libre)</option>
+              <option value="residency">Certificate of Residency</option>
+              <option value="business">Barangay Business Clearance</option>
+              <option value="id">Barangay ID Card Application</option>
+              <option value="jobseeker">First-Time Jobseeker Certificate (RA 11261 - Libre)</option>
+            </select>
+          </div>
+
+          <div class="bg-secondary/60 border border-border rounded-xl p-3.5 space-y-1.5">
+            <div class="text-[11px] font-bold text-secondary-foreground flex items-center gap-1.5">
+              <i data-lucide="info" class="w-3.5 h-3.5"></i>
+              <span>Mga Kinakailangang Dalhin sa Pag-claim:</span>
+            </div>
+            <ul id="doc-requirements-list" class="space-y-1"></ul>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-foreground mb-1">Buong Pangalan ng Aplikante *</label>
+              <input type="text" id="applicant-name" required placeholder="Hal. Maria Santos Cruz" class="w-full bg-background border border-border rounded-xl px-3 py-2 text-xs focus:ring-2 focus:ring-primary focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-foreground mb-1">Mobile / Contact Number *</label>
+              <input type="tel" id="applicant-phone" required placeholder="09XXXXXXXXX" class="w-full bg-background border border-border rounded-xl px-3 py-2 text-xs focus:ring-2 focus:ring-primary focus:outline-none">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-foreground mb-1">Tirahan sa Ibayo-Tipas (Purok / Kalye) *</label>
+            <input type="text" id="applicant-address" required placeholder="Hal. 700 Dr. Natividad St., Purok 2, Ibayo-Tipas" class="w-full bg-background border border-border rounded-xl px-3 py-2 text-xs focus:ring-2 focus:ring-primary focus:outline-none">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-foreground mb-1">Layunin o Dahilan ng Pagkuha (Purpose) *</label>
+            <input type="text" id="applicant-purpose" required placeholder="Hal. Para sa Local Employment, Postal ID, o School" class="w-full bg-background border border-border rounded-xl px-3 py-2 text-xs focus:ring-2 focus:ring-primary focus:outline-none">
+          </div>
+
+          <div class="pt-2 flex items-center justify-end gap-3">
+            <button type="button" class="close-request-modal px-4 py-2 rounded-full text-xs font-bold text-muted-foreground hover:bg-secondary transition-colors">
+              Kanselahin
+            </button>
+            <button type="submit" class="rounded-full bg-sun hover:bg-sun-hover text-sun-foreground font-bold px-6 py-2.5 text-xs shadow-sm transition-transform hover:scale-105 flex items-center gap-1.5">
+              <span>Isumite ang Aplikasyon</span>
+              <i data-lucide="check-circle" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- View 2: Printable Confirmation Stub -->
+      <div id="request-confirmation-view" class="hidden p-6">
+        <div id="printable-stub" class="border-2 border-dashed border-primary/40 rounded-2xl p-6 bg-secondary/30 space-y-4">
+          <div class="text-center border-b border-border pb-3">
+            <img src="assets/logo.png" alt="Barangay Seal" class="size-14 mx-auto mb-2 rounded-full object-contain bg-white p-0.5 shadow-sm">
+            <div class="text-[11px] font-bold text-primary uppercase font-heading">Republika ng Pilipinas • Lungsod ng Taguig</div>
+            <h4 class="text-base font-black text-foreground font-heading">BARANGAY IBAYO-TIPAS</h4>
+            <div class="text-xs text-muted-foreground">Official Document Claim Stub</div>
+          </div>
+
+          <div class="bg-white p-4 rounded-xl border border-border text-center">
+            <div class="text-xs text-muted-foreground font-semibold">Iyong Tracking & Reference Code:</div>
+            <div id="stub-tracking-code" class="text-2xl font-black text-primary tracking-wider my-1 font-mono">
+              BIT-2026-00000
+            </div>
+            <div class="text-[11px] text-primary font-bold">✓ Tagumpay na naitala sa database ng Barangay</div>
+          </div>
+
+          <div class="space-y-2 text-xs">
+            <div class="flex justify-between border-b border-border pb-1">
+              <span class="text-muted-foreground">Pangalan ng Aplikante:</span>
+              <span id="stub-name" class="font-bold text-foreground">-</span>
+            </div>
+            <div class="flex justify-between border-b border-border pb-1">
+              <span class="text-muted-foreground">Dokumentong Hinihiling:</span>
+              <span id="stub-doc" class="font-bold text-foreground">-</span>
+            </div>
+            <div class="flex justify-between border-b border-border pb-1">
+              <span class="text-muted-foreground">Contact Number:</span>
+              <span id="stub-phone" class="font-bold text-foreground">-</span>
+            </div>
+            <div class="flex justify-between border-b border-border pb-1">
+              <span class="text-muted-foreground">Address:</span>
+              <span id="stub-address" class="font-bold text-foreground">-</span>
+            </div>
+            <div class="flex justify-between pt-1 text-primary font-bold">
+              <span>Maaaring Kunin Sa:</span>
+              <span id="stub-pickup-date">-</span>
+            </div>
+          </div>
+
+          <div class="text-[11px] text-emerald-900 bg-emerald-50 p-3 rounded-xl border border-emerald-200">
+            <strong class="text-emerald-950 font-bold block mb-0.5">✓ 100% LIBRENG SERBISYO:</strong>
+            Walang bayad ang lahat ng dokumento! Dalhin lamang ang inyong <strong>orihinal na Valid ID na may address sa Barangay Ibayo-Tipas, Taguig</strong> kasama ang reference code na ito sa pagkuha sa Barangay Hall (700 Dr. Natividad St., Ibayo-Tipas).
+          </div>
+        </div>
+
+        <div class="mt-6 flex flex-wrap items-center justify-between gap-3 no-print">
+          <button id="print-stub-btn" class="rounded-full bg-leaf text-white px-5 py-2.5 text-xs font-bold flex items-center gap-2 hover:bg-leaf-dark transition-all">
+            <i data-lucide="printer" class="w-4 h-4"></i>
+            <span>I-print ang Claim Stub</span>
+          </button>
+          <button class="close-request-modal rounded-full bg-primary hover:bg-primary-hover text-white px-5 py-2.5 text-xs font-bold transition-all">
+            Tapos na (Close)
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <!-- Scripts -->
   <script src="app.js"></script>
 </body>

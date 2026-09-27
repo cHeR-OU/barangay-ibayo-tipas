@@ -215,42 +215,42 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', closeModal);
   });
 
-  // Requirements lookup map
+  // Requirements lookup map - 100% FREE with Valid ID containing Ibayo-Tipas address
   const docRequirements = {
     'clearance': [
-      'Valid Government ID or Student ID with Ibayo-Tipas address',
-      'Community Tax Certificate (Cedula) for the current year',
-      'Proof of billing or lease contract (if recently moved)',
-      'Processing fee: ₱50.00 (Standard) or FREE for First-Time Jobseekers'
+      'Valid Government ID o Student ID na may address sa Barangay Ibayo-Tipas, Taguig',
+      'Community Tax Certificate (Cedula) para sa kasalukuyang taon',
+      'Proof of billing o lease contract (kung bagong lipat)',
+      'Bayad: 100% LIBRE (Walang Bayad basta may Valid ID sa Ibayo-Tipas)'
     ],
     'residency': [
-      'Valid ID showing address in Ibayo-Tipas',
-      'Proof of stay (at least 6 months residency in the barangay)',
-      'Cedula (optional but recommended)',
-      'Processing fee: ₱30.00'
+      'Valid Government ID na may address sa Barangay Ibayo-Tipas, Taguig',
+      'Patunay ng paninirahan (Proof of billing, lease contract, o voter\'s certificate)',
+      'Cedula (opsyonal ngunit inirerekomenda)',
+      'Bayad: 100% LIBRE (Walang Bayad basta may Valid ID sa Ibayo-Tipas)'
     ],
     'indigency': [
-      'Valid ID or Barangay Certification',
-      'Case Study report or referral (for Medical / DSWD / PAO / Scholarship)',
-      'Processing fee: FREE (Walang Bayad)'
+      'Valid Government ID na may address sa Barangay Ibayo-Tipas, Taguig',
+      'Hospital bill, medical abstract, DSWD, PAO, o school assessment requirement',
+      'Bayad: 100% LIBRE (Walang Bayad)'
     ],
     'business': [
-      'DTI Business Name Certificate or SEC Registration',
-      'Contract of Lease or Land Title of business premises',
-      'Barangay Clearance of Business Owner',
-      'Cedula & Previous year Barangay Permit (if renewal)'
+      'DTI Business Name Certificate o SEC Registration',
+      'Valid ID ng May-ari na may address sa Barangay Ibayo-Tipas, Taguig',
+      'Contract of Lease o Land Title ng lokasyon ng negosyo',
+      'Bayad: 100% LIBRE para sa mga lehitimong residente ng Ibayo-Tipas'
     ],
     'id': [
-      'Proof of residency in Barangay Ibayo-Tipas (at least 1 year)',
-      '1 Valid Government ID / Birth Certificate',
-      '1x1 or 2x2 ID picture (can also take photo at the barangay hall)',
-      'Emergency contact details'
+      'Valid Government ID / PSA Birth Certificate',
+      'Katibayan ng paninirahan sa Barangay Ibayo-Tipas, Taguig',
+      '1x1 o 2x2 ID picture (maaari ding magpakuha sa barangay hall)',
+      'Bayad: 100% LIBRE (Walang Bayad)'
     ],
     'jobseeker': [
-      'Barangay Certification of First-time Jobseeker (under RA 11261)',
-      'Signed Oath of Undertaking',
-      'Valid ID or School Certificate',
-      'Processing fee: 100% LIBRE / FREE'
+      'Barangay Certification para sa First-time Jobseeker (RA 11261)',
+      'Nilagdaang Sumpa ng Pagtupad (Signed Oath of Undertaking)',
+      'Valid School ID, Diploma, o Transcript of Records (TOR)',
+      'Bayad: 100% LIBRE (Walang Bayad)'
     ]
   };
 
