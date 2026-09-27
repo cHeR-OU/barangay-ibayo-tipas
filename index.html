@@ -12,6 +12,9 @@
   <meta property="og:url" content="https://brgyibayotipas.lovable.app/">
   <meta property="og:type" content="website">
 
+  <!-- Favicon with Official Barangay Seal -->
+  <link rel="icon" type="image/png" href="assets/logo.png">
+
   <!-- Google Fonts: Bricolage Grotesque & Public Sans (Matching Lovable theme) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -92,10 +95,8 @@
     <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
       
       <!-- Logo & Branding -->
-      <a href="#" class="flex items-center gap-2.5 group">
-        <span class="flex size-10 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-sm group-hover:scale-105 transition-transform">
-          <i data-lucide="leaf" class="size-5"></i>
-        </span>
+      <a href="#" class="flex items-center gap-3 group">
+        <img src="assets/logo.png" alt="Barangay Ibayo-Tipas Official Seal" class="size-11 rounded-full object-contain shadow-sm border border-border group-hover:scale-105 transition-transform bg-white p-0.5">
         <span class="leading-tight">
           <span class="block font-bold text-foreground font-heading text-base group-hover:text-primary transition-colors">
             Barangay Ibayo-Tipas
@@ -183,37 +184,51 @@
 
   <!-- ================= HERO SECTION (LOVABLE THEME) ================= -->
   <section id="home" class="relative overflow-hidden bg-leaf">
-    <!-- Atmospheric background gradient & subtle lighting -->
-    <div class="absolute inset-0 bg-gradient-to-r from-leaf-dark/95 via-leaf/85 to-leaf-light/75 z-0"></div>
+    <!-- Background Image & Atmospheric Gradients -->
+    <img src="assets/hero-bg.png" alt="Barangay Ibayo-Tipas Official Seal Background" class="absolute inset-0 h-full w-full object-cover object-center scale-110 opacity-20 filter blur-[1px]">
+    <div class="absolute inset-0 bg-gradient-to-r from-leaf-dark/95 via-leaf/85 to-leaf-light/70 z-0"></div>
     <div class="absolute -right-20 -bottom-20 w-96 h-96 rounded-full bg-sun/10 pointer-events-none filter blur-3xl z-0"></div>
 
-    <div class="relative mx-auto max-w-6xl px-4 py-20 md:py-32 z-10">
-      
-      <p class="inline-flex items-center gap-2 rounded-full bg-sun px-4 py-1.5 text-sm font-semibold text-sun-foreground shadow-sm">
-        <i data-lucide="megaphone" class="size-4"></i>
-        <span>Opisyal na Website ng Barangay</span>
-      </p>
+    <div class="relative mx-auto max-w-6xl px-4 py-20 md:py-28 z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Left Content -->
+        <div class="lg:col-span-8">
+          <p class="inline-flex items-center gap-2 rounded-full bg-sun px-4 py-1.5 text-sm font-semibold text-sun-foreground shadow-sm">
+            <i data-lucide="megaphone" class="size-4"></i>
+            <span>Opisyal na Website ng Barangay</span>
+          </p>
 
-      <h1 class="mt-5 max-w-2xl text-4xl font-extrabold leading-tight text-primary-foreground md:text-6xl font-heading">
-        Barangay Ibayo-Tipas
-      </h1>
+          <h1 class="mt-5 max-w-2xl text-4xl font-extrabold leading-tight text-primary-foreground md:text-6xl font-heading">
+            Barangay Ibayo-Tipas
+          </h1>
 
-      <p class="mt-4 max-w-xl text-lg text-primary-foreground/90 leading-relaxed font-normal">
-        Taguig City. Sa pamumuno ni <strong>Punong Barangay Willy Flores</strong> — alamin ang mga serbisyo, anunsyo, at programa para sa bawat residente.
-      </p>
+          <p class="mt-4 max-w-xl text-lg text-primary-foreground/90 leading-relaxed font-normal">
+            Taguig City. Sa pamumuno ni <strong>Punong Barangay Willy Flores</strong> — alamin ang mga serbisyo, anunsyo, at programa para sa bawat residente.
+          </p>
 
-      <div class="mt-8 flex flex-wrap gap-3.5">
-        <button class="open-request-modal inline-flex items-center gap-2 rounded-full bg-sun px-6 py-3 text-sm font-bold text-sun-foreground transition-transform hover:scale-105 shadow-md">
-          <span>Mag-request ng Dokumento</span>
-          <i data-lucide="arrow-right" class="size-4"></i>
-        </button>
-        <a href="#services" class="inline-flex items-center gap-2 rounded-full border border-primary-foreground/40 bg-white/5 px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-white/15">
-          <span>Tingnan ang Serbisyo</span>
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=100092404114029" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full border border-primary-foreground/40 px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-white/10">
-          <i data-lucide="facebook" class="size-4"></i>
-          <span>Facebook Page</span>
-        </a>
+          <div class="mt-8 flex flex-wrap gap-3.5">
+            <button class="open-request-modal inline-flex items-center gap-2 rounded-full bg-sun px-6 py-3 text-sm font-bold text-sun-foreground transition-transform hover:scale-105 shadow-md">
+              <span>Mag-request ng Dokumento</span>
+              <i data-lucide="arrow-right" class="size-4"></i>
+            </button>
+            <a href="#services" class="inline-flex items-center gap-2 rounded-full border border-primary-foreground/40 bg-white/5 px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-white/15">
+              <span>Tingnan ang Serbisyo</span>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=100092404114029" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full border border-primary-foreground/40 px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-white/10">
+              <i data-lucide="facebook" class="size-4"></i>
+              <span>Facebook Page</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Side: Official Seal Showcase -->
+        <div class="hidden lg:flex lg:col-span-4 items-center justify-center">
+          <div class="relative p-3.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl transition-transform hover:scale-105">
+            <img src="assets/logo.png" alt="Barangay Ibayo-Tipas Official Seal" class="size-56 xl:size-64 rounded-full object-contain shadow-2xl drop-shadow-2xl bg-white p-1">
+          </div>
+        </div>
+
       </div>
 
       <!-- Quick Trust Indicators -->
@@ -747,10 +762,8 @@
     <div class="mx-auto max-w-6xl px-4 py-16">
       
       <div class="mb-10 max-w-xl">
-        <div class="flex items-center gap-2.5 mb-3">
-          <span class="flex size-9 items-center justify-center rounded-full bg-sun text-sun-foreground">
-            <i data-lucide="leaf" class="size-4"></i>
-          </span>
+        <div class="flex items-center gap-3 mb-3">
+          <img src="assets/logo.png" alt="Barangay Ibayo-Tipas Official Seal" class="size-11 rounded-full object-contain bg-white p-0.5 shadow-md">
           <span class="text-xl font-black font-heading tracking-tight">Barangay Ibayo-Tipas</span>
         </div>
         <p class="text-sm text-primary-foreground/80 leading-relaxed">
@@ -914,6 +927,7 @@
       <div id="request-confirmation-view" class="hidden p-6">
         <div id="printable-stub" class="border-2 border-dashed border-primary/40 rounded-2xl p-6 bg-secondary/30 space-y-4">
           <div class="text-center border-b border-border pb-3">
+            <img src="assets/logo.png" alt="Barangay Seal" class="size-14 mx-auto mb-2 rounded-full object-contain bg-white p-0.5 shadow-sm">
             <div class="text-[11px] font-bold text-primary uppercase font-heading">Republika ng Pilipinas • Lungsod ng Taguig</div>
             <h4 class="text-base font-black text-foreground font-heading">BARANGAY IBAYO-TIPAS</h4>
             <div class="text-xs text-muted-foreground">Official Document Claim Stub</div>
